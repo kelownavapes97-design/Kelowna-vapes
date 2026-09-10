@@ -15,13 +15,16 @@ const PRODUCTS = [
   { id: "p3", name: "ELFBAR 20K", price: 39.99, category: "Disposables", desc: "Beginner-friendly pod device, adjustable airflow, USB-C charging." },
   { id: "p4", name: "AERIX", price: 44.99, category: "Disposables", desc: "Regulated box mod for sub-ohm builds, dual 18650 battery bay." },
   { id: "p5", name: "ALLO 65K", price: 49.99, category: "Disposables", desc: "Local-favourite peach blend, 30ml bottle, multiple nic strengths." },
-  { id: "p6", name: "ALLO 25K", price: 29.99, category: "Disposables", desc: "Crisp menthol, 30ml bottle, multiple nic strengths." },
   { id: "p7", name: "Firebrand Tobacco E-Liquid 30ml", price: 19.99, category: "E-Liquids", desc: "Classic tobacco profile, 30ml bottle, multiple nic strengths." },
   { id: "p8", name: "Replacement Coils (3-pack)", price: 14.99, category: "Accessories", desc: "Fits most standard pod and sub-ohm devices." },
   { id: "p9", name: "18650 Battery (2-pack)", price: 17.99, category: "Accessories", desc: "High-drain rechargeable batteries with case." },
   { id: "p10", name: "USB-C Charging Cable", price: 9.99, category: "Accessories", desc: "Reinforced braided cable, fast charging." },
   { id: "p11", name: "Silicone Device Sleeve", price: 8.99, category: "Accessories", desc: "Protective sleeve, fits most pod devices." },
-  { id: "p12", name: "Glass Drip Tip", price: 6.99, category: "Accessories", desc: "Universal 510 fit, heat-resistant glass." }
+  { id: "p12", name: "Glass Drip Tip", price: 6.99, category: "Accessories", desc: "Universal 510 fit, heat-resistant glass." },
+  { id: "p13", name: "RIFBAR", price: 39.99, category: "Disposables", desc: "80000-puff disposable, mesh coil for a smoother pull. Multiple flavours in stock." },
+
+
+   
 ];
 
 const CART_KEY = "kelownaVapesCart";
