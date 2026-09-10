@@ -10,7 +10,7 @@
 
 // ---------- Product catalog (placeholders — swap in real products) ----------
 const PRODUCTS = [
-  { id: "p1", name: "STILTH x GEEKBAR", price: 49.99.99, category: "Disposables", desc: "80000-puff disposable, mesh coil for a smoother pull. Multiple flavours in stock." },
+  { id: "p1", name: "STILTH x GEEKBAR", price: 49.99, category: "Disposables", desc: "80000-puff disposable, mesh coil for a smoother pull. Multiple flavours in stock." },
   { id: "p2", name: "Blue Frost Disposable", price: 24.99, category: "Disposables", desc: "Cool menthol-forward disposable, long-lasting battery." },
   { id: "p3", name: "Harvey Ave Starter Kit", price: 44.99, category: "Devices", desc: "Beginner-friendly pod device, adjustable airflow, USB-C charging." },
   { id: "p4", name: "Okanagan Sub-Ohm Mod", price: 69.99, category: "Devices", desc: "Regulated box mod for sub-ohm builds, dual 18650 battery bay." },
