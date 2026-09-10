@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Kelowna Vapes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<div class="age-gate" id="age-gate" hidden>
+  <div class="age-card">
+    <svg class="flame" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs><linearGradient id="fg1" x1="0" y1="24" x2="24" y2="0"><stop offset="0" stop-color="#ff6a2b"/><stop offset="1" stop-color="#2e7dd6"/></linearGradient></defs>
+      <path d="M12 2C9 6 6 8 6 13a6 6 0 0 0 12 0c0-2-1-3-2-4 .3 2-1 3-2 2 1-3-1-5-2-9z" fill="url(#fg1)"/>
+    </svg>
+    <h2>Are you 19 or older?</h2>
+    <p>You must be of legal vaping age in British Columbia to enter this site.</p>
+    <div class="age-actions">
+      <button class="btn btn-primary" id="age-enter">Yes, I'm 19+</button>
+      <button class="btn btn-outline" id="age-leave">No, exit</button>
+    </div>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="container">
+    <a href="index.html" class="wordmark">
+      Kelowna Vapes
+      <svg class="flame" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs><linearGradient id="fg2" x1="0" y1="24" x2="24" y2="0"><stop offset="0" stop-color="#ff6a2b"/><stop offset="1" stop-color="#2e7dd6"/></linearGradient></defs>
+        <path d="M12 2C9 6 6 8 6 13a6 6 0 0 0 12 0c0-2-1-3-2-4 .3 2-1 3-2 2 1-3-1-5-2-9z" fill="url(#fg2)"/>
+      </svg>
+    </a>
+    <nav class="main-nav">
+      <a href="index.html">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="about.html">About &amp; Hours</a>
+      <a href="contact.html" class="active">Contact</a>
+      <a href="#" class="cart-link" data-open-cart>Cart (<span data-cart-count>0</span>)</a>
+    </nav>
+    <button class="nav-toggle" aria-label="Toggle menu">Menu</button>
+  </div>
+</header>
+
+<section>
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <h1 style="font-size: 40px;">Contact</h1>
+        <p>Questions about stock, hours, or an order — send a message.</p>
+      </div>
+    </div>
+
+    <form class="form-grid" action="mailto:orders@kelownavapes.ca" method="post" enctype="text/plain">
+      <div>
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+      <div>
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      <div>
+        <label for="message">Message</label>
+        <textarea id="message" name="message" required></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Send message</button>
+    </form>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div>
+      <div class="wordmark" style="font-size:16px;">Kelowna Vapes</div>
+      <p class="footer-note">For adult smokers and vapers 19+ only. Vaping products contain nicotine, an addictive chemical.</p>
+    </div>
+    <div>
+      <p style="margin:0; color:var(--muted); font-size:14px;">2090 Harvey Ave, Kelowna, BC<br>7am – 11pm daily</p>
+    </div>
+  </div>
+</footer>
+
+<div class="scrim" id="scrim"></div>
+<div class="cart-drawer" id="cart-drawer">
+  <div class="cart-head">
+    <h3 style="margin:0; font-size:16px;">Your cart</h3>
+    <button class="cart-close" id="cart-close" aria-label="Close cart">&times;</button>
+  </div>
+  <div class="cart-items" id="cart-items"></div>
+  <div class="cart-footer">
+    <div class="cart-total"><span>Total</span><span id="cart-total-amount">$0.00</span></div>
+    <button class="btn btn-primary btn-block" id="checkout-btn">Request order by email</button>
+  </div>
+</div>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>
