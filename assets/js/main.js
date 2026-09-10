@@ -11,11 +11,11 @@
 // ---------- Product catalog (placeholders — swap in real products) ----------
 const PRODUCTS = [
   { id: "p1", name: "STILTH x GEEKBAR", price: 49.99, category: "Disposables", desc: "80000-puff disposable, mesh coil for a smoother pull. Multiple flavours in stock." },
-  { id: "p2", name: "Blue Frost Disposable", price: 24.99, category: "Disposables", desc: "Cool menthol-forward disposable, long-lasting battery." },
-  { id: "p3", name: "Harvey Ave Starter Kit", price: 44.99, category: "Devices", desc: "Beginner-friendly pod device, adjustable airflow, USB-C charging." },
-  { id: "p4", name: "Okanagan Sub-Ohm Mod", price: 69.99, category: "Devices", desc: "Regulated box mod for sub-ohm builds, dual 18650 battery bay." },
-  { id: "p5", name: "Peach Ridge E-Liquid 30ml", price: 19.99, category: "E-Liquids", desc: "Local-favourite peach blend, 30ml bottle, multiple nic strengths." },
-  { id: "p6", name: "Lakeview Menthol E-Liquid 30ml", price: 19.99, category: "E-Liquids", desc: "Crisp menthol, 30ml bottle, multiple nic strengths." },
+  { id: "p2", name: "ELFBAR 80K", price: 49.99, category: "Disposables", desc: "Cool menthol-forward disposable, long-lasting battery." },
+  { id: "p3", name: "ELFBAR 20K", price: 39.99, category: "Disposables", desc: "Beginner-friendly pod device, adjustable airflow, USB-C charging." },
+  { id: "p4", name: "AERIX", price: 44.99, category: "Disposables", desc: "Regulated box mod for sub-ohm builds, dual 18650 battery bay." },
+  { id: "p5", name: "ALLO 65K", price: 49.99, category: "Disposables", desc: "Local-favourite peach blend, 30ml bottle, multiple nic strengths." },
+  { id: "p6", name: "ALLO 25K", price: 29.99, category: "Disposables", desc: "Crisp menthol, 30ml bottle, multiple nic strengths." },
   { id: "p7", name: "Firebrand Tobacco E-Liquid 30ml", price: 19.99, category: "E-Liquids", desc: "Classic tobacco profile, 30ml bottle, multiple nic strengths." },
   { id: "p8", name: "Replacement Coils (3-pack)", price: 14.99, category: "Accessories", desc: "Fits most standard pod and sub-ohm devices." },
   { id: "p9", name: "18650 Battery (2-pack)", price: 17.99, category: "Accessories", desc: "High-drain rechargeable batteries with case." },
