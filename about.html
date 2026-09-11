@@ -4,20 +4,70 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>About &amp; Hours — Kelowna Vapes</title>
+<meta name="description" content="Visit Kelowna Vapes at Harvey Ave in Kelowna or Ross Road in West Kelowna. Stocking top brands like STLTH, Flavour Beast, Lost Mary, and G-Core.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
+<style>
+  .store-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+    margin: 32px 0 48px;
+  }
+  .store-card {
+    background: var(--surface);
+    border: 1px solid var(--surface-border);
+    border-radius: 8px;
+    padding: 28px;
+  }
+  .store-card h2 {
+    font-size: 24px;
+    margin-top: 0;
+    margin-bottom: 12px;
+  }
+  .hours-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 16px;
+  }
+  .hours-table td {
+    padding: 8px 0;
+    border-bottom: 1px solid var(--surface-border);
+    font-size: 14px;
+  }
+  .hours-table td:last-child {
+    text-align: right;
+    font-weight: 500;
+  }
+  .brand-list {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 16px;
+  }
+  .brand-chip {
+    background: var(--surface);
+    border: 1px solid var(--surface-border);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 14px;
+  }
+</style>
 </head>
 <body>
 
+<!-- Age Gate -->
 <div class="age-gate" id="age-gate" hidden>
   <div class="age-card">
-    <svg class="flame" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg class="flame" viewBox="0 0 24 24" fill="none" aria-hidden="true">
       <defs><linearGradient id="fg1" x1="0" y1="24" x2="24" y2="0"><stop offset="0" stop-color="#ff6a2b"/><stop offset="1" stop-color="#2e7dd6"/></linearGradient></defs>
       <path d="M12 2C9 6 6 8 6 13a6 6 0 0 0 12 0c0-2-1-3-2-4 .3 2-1 3-2 2 1-3-1-5-2-9z" fill="url(#fg1)"/>
     </svg>
     <h2>Are you 19 or older?</h2>
-    <p>You must be of legal vaping age in British Columbia to enter this site.</p>
+    <p>You must be of legal age in British Columbia to enter this site.</p>
     <div class="age-actions">
       <button class="btn btn-primary" id="age-enter">Yes, I'm 19+</button>
       <button class="btn btn-outline" id="age-leave">No, exit</button>
@@ -25,11 +75,12 @@
   </div>
 </div>
 
+<!-- Header -->
 <header class="site-header">
   <div class="container">
-    <a href="index.html" class="wordmark">
+    <a href="index.html" class="wordmark" aria-label="Kelowna Vapes Homepage">
       Kelowna Vapes
-      <svg class="flame" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg class="flame" viewBox="0 0 24 24" fill="none" aria-hidden="true">
         <defs><linearGradient id="fg2" x1="0" y1="24" x2="24" y2="0"><stop offset="0" stop-color="#ff6a2b"/><stop offset="1" stop-color="#2e7dd6"/></linearGradient></defs>
         <path d="M12 2C9 6 6 8 6 13a6 6 0 0 0 12 0c0-2-1-3-2-4 .3 2-1 3-2 2 1-3-1-5-2-9z" fill="url(#fg2)"/>
       </svg>
@@ -39,85 +90,85 @@
       <a href="shop.html">Shop</a>
       <a href="about.html" class="active">About &amp; Hours</a>
       <a href="contact.html">Contact</a>
-      <a href="#" class="cart-link" data-open-cart>Cart (<span data-cart-count>0</span>)</a>
+      <a href="#" class="cart-link" data-open-cart aria-label="View Shopping Cart">Cart (<span data-cart-count>0</span>)</a>
     </nav>
-    <button class="nav-toggle" aria-label="Toggle menu">Menu</button>
+    <button class="nav-toggle" aria-label="Toggle Navigation Menu">Menu</button>
   </div>
 </header>
 
-<section class="reveal">
+<section style="padding-bottom: 50px;">
   <div class="container">
     <div class="section-head">
       <div>
-        <h1 style="font-size: 40px;">About &amp; hours</h1>
-        <p>Two Kelowna locations — open early, open late.</p>
+        <h1 style="font-size: 40px;">About &amp; Store Hours</h1>
+        <p>Serving Kelowna and West Kelowna with top-quality adult vaping products and dependable customer service.</p>
       </div>
     </div>
-    <div class="info-grid">
-      <dl class="info-list">
-        <dt>Harvey Ave</dt>
-        <dd>2090 Harvey Ave, Kelowna, BC</dd>
-        <dt>Hours</dt>
-        <dd>7:00am – 11:00pm, every day</dd>
-        <dt>Ross Road</dt>
-        <dd>1785 Ross Road, Kelowna, BC</dd>
-        <dt>Hours</dt>
-        <dd>8:00am – 10:00pm, every day</dd>
-        <dt>Phone</dt>
-        <dd>Add your number here</dd>
-        <dt>Minimum age</dt>
-        <dd>19+, ID checked in store</dd>
-      </dl>
-      <div class="map-wrap">
-        <iframe
-          src="https://www.google.com/maps?q=2090+Harvey+Ave,+Kelowna,+BC&output=embed"
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-          title="Map to Kelowna Vapes on Harvey Avenue">
-        </iframe>
+
+    <!-- Store Locations Grid -->
+    <div class="store-grid">
+      <div class="store-card">
+        <h2>Kelowna Location</h2>
+        <p style="color: var(--muted); margin-bottom: 16px;">2090 Harvey Ave, Kelowna, BC</p>
+        <table class="hours-table">
+          <tr><td>Monday – Sunday</td><td>7:00 AM – 11:00 PM</td></tr>
+        </table>
       </div>
+
+      <div class="store-card">
+        <h2>West Kelowna Location</h2>
+        <p style="color: var(--muted); margin-bottom: 16px;">1785 Ross Rd, West Kelowna, BC</p>
+        <table class="hours-table">
+          <tr><td>Monday – Sunday</td><td>8:00 AM – 10:00 PM</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- Brands Handled -->
+    <h2 style="font-size: 28px; margin-top: 32px;">Featured Brands In Stock</h2>
+    <p style="color: var(--muted);">We carry wide selections of hardware, pods, e-liquids, and disposables from trusted brands:</p>
+    <div class="brand-list">
+      <span class="brand-chip">STLTH</span>
+      <span class="brand-chip">Flavour Beast</span>
+      <span class="brand-chip">Lost Mary</span>
+      <span class="brand-chip">G-Core</span>
+      <span class="brand-chip">Vaporesso</span>
     </div>
   </div>
 </section>
 
-<section class="reveal">
-  <div class="container">
-    <div class="section-head">
-      <div>
-        <h2>Our story</h2>
-      </div>
-    </div>
-    <p style="color: var(--muted);">Add a few sentences here about how Kelowna Vapes got started, what you carry, and why locals stop in at either location. This is placeholder text — replace it with your own story.</p>
-  </div>
-</section>
-
+<!-- Footer -->
 <footer class="site-footer">
   <div class="container">
     <div>
       <div class="wordmark" style="font-size:16px;">Kelowna Vapes</div>
-      <p class="footer-note">For adult smokers and vapers 19+ only. Vaping products contain nicotine, an addictive chemical.</p>
+      <p class="footer-note">For adult consumers 19+ only. Vaping products contain nicotine, an addictive substance.</p>
     </div>
     <div class="footer-badges">
-      <span class="badge">Locally owned</span>
-      <span class="badge">19+ ID checked</span>
-      <span class="badge">In-store pickup</span>
+      <span class="badge">Locally Owned</span>
+      <span class="badge">19+ ID Checked</span>
+      <span class="badge">In-Store Pickup</span>
     </div>
     <div>
-      <p style="margin:0; color:var(--muted); font-size:14px;">2090 Harvey Ave, Kelowna, BC — 7am–11pm<br>1785 Ross Road, Kelowna, BC — 8am–10pm</p>
+      <p style="margin:0; color:var(--muted); font-size:14px;">
+        <strong>Kelowna:</strong> 2090 Harvey Ave (7am–11pm)<br>
+        <strong>West Kelowna:</strong> 1785 Ross Rd (8am–10pm)
+      </p>
     </div>
   </div>
 </footer>
 
+<!-- Cart Drawer -->
 <div class="scrim" id="scrim"></div>
-<div class="cart-drawer" id="cart-drawer">
+<div class="cart-drawer" id="cart-drawer" aria-hidden="true">
   <div class="cart-head">
-    <h3 style="margin:0; font-size:16px;">Your cart</h3>
+    <h3 style="margin:0; font-size:16px;">Your Pickup Order</h3>
     <button class="cart-close" id="cart-close" aria-label="Close cart">&times;</button>
   </div>
   <div class="cart-items" id="cart-items"></div>
   <div class="cart-footer">
     <div class="cart-total"><span>Total</span><span id="cart-total-amount">$0.00</span></div>
-    <button class="btn btn-primary btn-block" id="checkout-btn">Request order by email</button>
+    <button class="btn btn-primary btn-block" id="checkout-btn">Request Order by Email</button>
   </div>
 </div>
 
