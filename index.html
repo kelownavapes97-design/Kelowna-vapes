@@ -1,177 +1,371 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kelowna Vapes — Harvey Ave &amp; Ross Rd Locations</title>
-<meta name="description" content="Kelowna's premier local vape shop. Carrying top brands like STLTH, Flavour Beast, Lost Mary, and G-Core across two convenient locations.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css">
-<style>
-  .hero {
-    padding: 60px 0 40px;
-    background: linear-gradient(180deg, var(--surface) 0%, var(--background) 100%);
+:root {
+  --background: #0b0d11;
+  --surface: #131720;
+  --surface-hover: #1c212d;
+  --surface-border: #232936;
+  --surface-border-light: rgba(255, 255, 255, 0.08);
+  
+  --primary: #ff6a2b;
+  --primary-hover: #ff7d42;
+  --primary-glow: rgba(255, 106, 43, 0.25);
+  
+  --text: #f8fafc;
+  --muted: #8e99a8;
+  --accent: #2e7dd6;
+
+  --font-heading: 'Oswald', sans-serif;
+  --font-body: 'Work Sans', sans-serif;
+
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --shadow-main: 0 12px 32px rgba(0, 0, 0, 0.4);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--background);
+  color: var(--text);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  letter-spacing: 0.5px;
+  color: #ffffff;
+}
+
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Header & Glassmorphism */
+.site-header {
+  background: rgba(19, 23, 32, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--surface-border-light);
+  padding: 16px 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.site-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.wordmark {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-heading);
+  font-size: 24px;
+  font-weight: 700;
+  color: #ffffff;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.flame {
+  width: 22px;
+  height: 22px;
+  filter: drop-shadow(0 0 6px var(--primary-glow));
+}
+
+.main-nav {
+  display: flex;
+  gap: 28px;
+  align-items: center;
+}
+
+.main-nav a {
+  color: var(--muted);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 15px;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.main-nav a:hover, 
+.main-nav a.active {
+  color: #ffffff;
+}
+
+.main-nav a.active {
+  position: relative;
+}
+
+.main-nav a.active::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--primary);
+  border-radius: 2px;
+}
+
+.nav-toggle {
+  display: none;
+  background: var(--surface);
+  border: 1px solid var(--surface-border);
+  color: var(--text);
+  padding: 8px 14px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .nav-toggle {
+    display: block;
+  }
+  .main-nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--surface);
+    flex-direction: column;
+    padding: 24px;
+    gap: 16px;
     border-bottom: 1px solid var(--surface-border);
   }
-  .hero-content {
-    max-width: 700px;
+  .main-nav.active {
+    display: flex;
   }
-  .hero h1 {
-    font-size: 48px;
-    line-height: 1.1;
-    margin-bottom: 16px;
-    text-transform: uppercase;
+  .main-nav a.active::after {
+    display: none;
   }
-  .hero p {
-    font-size: 18px;
-    color: var(--muted);
-    margin-bottom: 24px;
-  }
-  .featured-brands {
-    margin: 40px 0;
-  }
-  .brand-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 16px;
-    margin-top: 20px;
-  }
-  .brand-card {
-    background: var(--surface);
-    border: 1px solid var(--surface-border);
-    border-radius: 8px;
-    padding: 20px;
-    text-align: center;
-    text-decoration: none;
-    color: var(--text);
-    transition: all 0.2s ease;
-  }
-  .brand-card:hover {
-    border-color: var(--primary);
-    transform: translateY(-2px);
-  }
-  .brand-card h3 {
-    margin: 0;
-    font-size: 20px;
-  }
-</style>
-</head>
-<body>
+}
 
-<!-- Age Gate -->
-<div class="age-gate" id="age-gate" hidden>
-  <div class="age-card">
-    <svg class="flame" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <defs><linearGradient id="fg1" x1="0" y1="24" x2="24" y2="0"><stop offset="0" stop-color="#ff6a2b"/><stop offset="1" stop-color="#2e7dd6"/></linearGradient></defs>
-      <path d="M12 2C9 6 6 8 6 13a6 6 0 0 0 12 0c0-2-1-3-2-4 .3 2-1 3-2 2 1-3-1-5-2-9z" fill="url(#fg1)"/>
-    </svg>
-    <h2>Are you 19 or older?</h2>
-    <p>You must be of legal age in British Columbia to enter this site.</p>
-    <div class="age-actions">
-      <button class="btn btn-primary" id="age-enter">Yes, I'm 19+</button>
-      <button class="btn btn-outline" id="age-leave">No, exit</button>
-    </div>
-  </div>
-</div>
+/* Premium Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-heading);
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
 
-<!-- Header -->
-<header class="site-header">
-  <div class="container">
-    <a href="index.html" class="wordmark" aria-label="Kelowna Vapes Homepage">
-      Kelowna Vapes
-      <svg class="flame" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <defs><linearGradient id="fg2" x1="0" y1="24" x2="24" y2="0"><stop offset="0" stop-color="#ff6a2b"/><stop offset="1" stop-color="#2e7dd6"/></linearGradient></defs>
-        <path d="M12 2C9 6 6 8 6 13a6 6 0 0 0 12 0c0-2-1-3-2-4 .3 2-1 3-2 2 1-3-1-5-2-9z" fill="url(#fg2)"/>
-      </svg>
-    </a>
-    <nav class="main-nav">
-      <a href="index.html" class="active">Home</a>
-      <a href="shop.html">Shop</a>
-      <a href="about.html">About &amp; Hours</a>
-      <a href="contact.html">Contact</a>
-      <a href="#" class="cart-link" data-open-cart aria-label="View Shopping Cart">Cart (<span data-cart-count>0</span>)</a>
-    </nav>
-    <button class="nav-toggle" aria-label="Toggle Navigation Menu">Menu</button>
-  </div>
-</header>
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary) 0%, #e05316 100%);
+  color: #ffffff;
+  box-shadow: 0 4px 16px var(--primary-glow);
+}
 
-<!-- Hero Section -->
-<section class="hero">
-  <div class="container">
-    <div class="hero-content">
-      <h1>Your Local Source For Top Vape Brands</h1>
-      <p>Serving Kelowna at 2090 Harvey Ave and West Kelowna at 1785 Ross Rd. Stocking authentic devices, pods, disposables, and e-liquids.</p>
-      <div style="display: flex; gap: 12px; flex-wrap: wrap;">
-        <a href="shop.html" class="btn btn-primary">Browse Catalog</a>
-        <a href="about.html" class="btn btn-outline">View Hours &amp; Locations</a>
-      </div>
-    </div>
-  </div>
-</section>
+.btn-primary:hover {
+  background: linear-gradient(135deg, var(--primary-hover) 0%, #eb5b1c 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 106, 43, 0.4);
+}
 
-<!-- Featured Brands -->
-<section class="featured-brands">
-  <div class="container">
-    <h2 style="font-size: 28px; margin-bottom: 8px;">Popular Brands In Stock</h2>
-    <p style="color: var(--muted); margin-top: 0;">Explore top products from leading manufacturers:</p>
-    <div class="brand-grid">
-      <a href="shop.html" class="brand-card">
-        <h3>STLTH</h3>
-        <p style="font-size: 13px; color: var(--muted); margin: 6px 0 0;">Pods &amp; Devices</p>
-      </a>
-      <a href="shop.html" class="brand-card">
-        <h3>Flavour Beast</h3>
-        <p style="font-size: 13px; color: var(--muted); margin: 6px 0 0;">Disposables &amp; Level X</p>
-      </a>
-      <a href="shop.html" class="brand-card">
-        <h3>Lost Mary</h3>
-        <p style="font-size: 13px; color: var(--muted); margin: 6px 0 0;">Rechargeable Disposables</p>
-      </a>
-      <a href="shop.html" class="brand-card">
-        <h3>G-Core</h3>
-        <p style="font-size: 13px; color: var(--muted); margin: 6px 0 0;">Salt Nic E-Liquids</p>
-      </a>
-    </div>
-  </div>
-</section>
+.btn-outline {
+  background: transparent;
+  border-color: var(--surface-border-light);
+  color: var(--text);
+}
 
-<!-- Footer -->
-<footer class="site-footer">
-  <div class="container">
-    <div>
-      <div class="wordmark" style="font-size:16px;">Kelowna Vapes</div>
-      <p class="footer-note">For adult consumers 19+ only. Vaping products contain nicotine, an addictive substance.</p>
-    </div>
-    <div class="footer-badges">
-      <span class="badge">Locally Owned</span>
-      <span class="badge">19+ ID Checked</span>
-      <span class="badge">In-Store Pickup</span>
-    </div>
-    <div>
-      <p style="margin:0; color:var(--muted); font-size:14px;">
-        <strong>Kelowna:</strong> 2090 Harvey Ave (7am–11pm)<br>
-        <strong>West Kelowna:</strong> 1785 Ross Rd (8am–10pm)
-      </p>
-    </div>
-  </div>
-</footer>
+.btn-outline:hover {
+  background: var(--surface-hover);
+  border-color: var(--muted);
+  color: #ffffff;
+}
 
-<!-- Cart Drawer -->
-<div class="scrim" id="scrim"></div>
-<div class="cart-drawer" id="cart-drawer" aria-hidden="true">
-  <div class="cart-head">
-    <h3 style="margin:0; font-size:16px;">Your Pickup Order</h3>
-    <button class="cart-close" id="cart-close" aria-label="Close cart">&times;</button>
-  </div>
-  <div class="cart-items" id="cart-items"></div>
-  <div class="cart-footer">
-    <div class="cart-total"><span>Total</span><span id="cart-total-amount">$0.00</span></div>
-    <button class="btn btn-primary btn-block" id="checkout-btn">Request Order by Email</button>
-  </div>
-</div>
+.btn-block {
+  display: flex;
+  width: 100%;
+}
 
-<script src="assets/js/main.js"></script>
-</body>
-</html>
+/* Age Gate Modal */
+.age-gate {
+  position: fixed;
+  inset: 0;
+  background: rgba(11, 13, 17, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.age-card {
+  background: var(--surface);
+  border: 1px solid var(--surface-border-light);
+  border-radius: var(--radius-lg);
+  padding: 40px;
+  max-width: 440px;
+  width: 100%;
+  text-align: center;
+  box-shadow: var(--shadow-main);
+}
+
+.age-card .flame {
+  width: 54px;
+  height: 54px;
+  margin-bottom: 16px;
+}
+
+.age-card h2 {
+  margin: 0 0 10px;
+  font-size: 28px;
+}
+
+.age-card p {
+  color: var(--muted);
+  margin-bottom: 28px;
+  font-size: 15px;
+}
+
+.age-actions {
+  display: flex;
+  gap: 14px;
+}
+
+.age-actions .btn {
+  flex: 1;
+}
+
+/* Cart Drawer & Overlay */
+.scrim {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 200;
+}
+
+.scrim.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.cart-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  max-width: 400px;
+  background: var(--surface);
+  border-left: 1px solid var(--surface-border-light);
+  transform: translateX(100%);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 201;
+  display: flex;
+  flex-direction: column;
+  box-shadow: -10px 0 30px rgba(0,0,0,0.5);
+}
+
+.cart-drawer.open {
+  transform: translateX(0);
+}
+
+.cart-head {
+  padding: 24px;
+  border-bottom: 1px solid var(--surface-border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cart-close {
+  background: none;
+  border: none;
+  color: var(--muted);
+  font-size: 28px;
+  cursor: pointer;
+  line-height: 1;
+  transition: color 0.2s ease;
+}
+
+.cart-close:hover {
+  color: #ffffff;
+}
+
+.cart-items {
+  padding: 24px;
+  flex: 1;
+  overflow-y: auto;
+}
+
+.cart-footer {
+  padding: 24px;
+  border-top: 1px solid var(--surface-border);
+  background: rgba(11, 13, 17, 0.4);
+}
+
+.cart-total {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-heading);
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
+/* Footer Section */
+.site-footer {
+  background: var(--surface);
+  border-top: 1px solid var(--surface-border-light);
+  padding: 48px 0;
+  margin-top: 80px;
+}
+
+.site-footer .container {
+  display: flex;
+  justify-content: space-between;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
+.footer-note {
+  color: var(--muted);
+  font-size: 13px;
+  max-width: 320px;
+  margin-top: 12px;
+}
+
+.footer-badges {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-self: flex-start;
+}
+
+.badge {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--surface-border-light);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--muted);
+}
