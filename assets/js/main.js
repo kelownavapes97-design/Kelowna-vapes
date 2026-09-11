@@ -1,19 +1,19 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // --- Age Gate Logic ---
+  // Age Gate Handler
   const ageGate = document.getElementById('age-gate');
   const ageEnter = document.getElementById('age-enter');
   const ageLeave = document.getElementById('age-leave');
 
-  const isVerified = localStorage.getItem('kv_age_verified');
+  const ageVerified = localStorage.getItem('kv_age_verified');
 
-  if (!isVerified && ageGate) {
+  if (!ageVerified && ageGate) {
     ageGate.removeAttribute('hidden');
   }
 
   if (ageEnter) {
     ageEnter.addEventListener('click', () => {
       localStorage.setItem('kv_age_verified', 'true');
-      if (ageGate) ageGate.setAttribute('hidden', '');
+      if (ageGate) ageGate.setAttribute('hidden', 'true');
     });
   }
 
@@ -23,28 +23,27 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // --- Mobile Navigation Toggle ---
+  // Mobile Navigation Toggle
   const navToggle = document.querySelector('.nav-toggle');
   const mainNav = document.querySelector('.main-nav');
 
   if (navToggle && mainNav) {
     navToggle.addEventListener('click', () => {
-      mainNav.classList.toggle('open');
+      mainNav.classList.toggle('active');
     });
   }
 
-  // --- Cart Drawer Controls ---
-  const cartLink = document.querySelector('[data-open-cart]');
+  // Cart Drawer Control
   const cartDrawer = document.getElementById('cart-drawer');
   const scrim = document.getElementById('scrim');
   const cartClose = document.getElementById('cart-close');
+  const openCartTriggers = document.querySelectorAll('[data-open-cart]');
 
-  function openCart(e) {
-    if (e) e.preventDefault();
+  function openCart() {
     if (cartDrawer && scrim) {
       cartDrawer.classList.add('open');
       scrim.classList.add('active');
-      cartDrawer.setAttribute('aria-hidden', 'false');
+      cartDrawer.removeAttribute('aria-hidden');
     }
   }
 
@@ -56,20 +55,21 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  if (cartLink) cartLink.addEventListener('click', openCart);
+  openCartTriggers.forEach(trigger => {
+    trigger.addEventListener('click', (e) => {
+      e.preventDefault();
+      openCart();
+    });
+  });
+
   if (cartClose) cartClose.addEventListener('click', closeCart);
   if (scrim) scrim.addEventListener('click', closeCart);
 
-  // --- Example Cart Count Handler ---
-  let cart = JSON.parse(localStorage.getItem('kv_cart')) || [];
-  const cartCountEl = document.querySelector('[data-cart-count]');
-
-  function updateCartCount() {
-    if (cartCountEl) {
-      const count = cart.reduce((total, item) => total + (item.quantity || 1), 0);
-      cartCountEl.textContent = count;
-    }
+  // Initial cart badge check for non-shop pages
+  const cartCount = document.querySelector('[data-cart-count]');
+  if (cartCount) {
+    const cart = JSON.parse(localStorage.getItem('kv_cart')) || [];
+    const count = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
+    cartCount.textContent = count;
   }
-
-  updateCartCount();
 });
