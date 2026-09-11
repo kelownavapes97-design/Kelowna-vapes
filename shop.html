@@ -10,10 +10,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
 <style>
-  .shop-header {
-    padding: 40px 0 20px;
-    border-bottom: 1px solid var(--surface-border-light);
-  }
   .filter-bar {
     display: flex;
     gap: 10px;
@@ -25,7 +21,7 @@
     background: rgba(11, 13, 17, 0.9);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    padding: 12px 0;
+    padding: 14px 0;
     border-bottom: 1px solid var(--surface-border-light);
   }
   .filter-btn {
@@ -37,7 +33,7 @@
     font-size: 14px;
     font-weight: 500;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: all 0.25s ease;
   }
   .filter-btn:hover {
     color: var(--text);
@@ -51,7 +47,7 @@
   }
   .product-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
     gap: 24px;
     margin-bottom: 60px;
   }
@@ -63,14 +59,14 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    transition: all 0.25s ease;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     position: relative;
     overflow: hidden;
   }
   .product-card:hover {
-    border-color: var(--surface-border);
-    transform: translateY(-4px);
-    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4);
+    border-color: var(--primary);
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-card);
   }
   .product-card-top {
     margin-bottom: 20px;
@@ -95,7 +91,7 @@
   }
   .product-price {
     font-family: var(--font-heading);
-    font-size: 24px;
+    font-size: 26px;
     font-weight: 700;
     color: #ffffff;
     margin-bottom: 16px;
@@ -107,8 +103,8 @@
     font-size: 11px;
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid var(--surface-border-light);
-    padding: 3px 8px;
-    border-radius: 4px;
+    padding: 4px 10px;
+    border-radius: 12px;
     color: var(--muted);
   }
 </style>
@@ -116,7 +112,7 @@
 <body>
 
 <!-- Age Gate Overlay -->
-<div class="age-gate" id="age-gate" style="display: none;">
+<div class="age-gate" id="age-gate">
   <div class="age-card">
     <svg class="flame" viewBox="0 0 24 24" fill="none" aria-hidden="true">
       <defs><linearGradient id="fg1" x1="0" y1="24" x2="24" y2="0"><stop offset="0" stop-color="#ff6a2b"/><stop offset="1" stop-color="#2e7dd6"/></linearGradient></defs>
@@ -146,15 +142,15 @@
       <a href="shop.html" class="active">Shop</a>
       <a href="about.html">About &amp; Hours</a>
       <a href="contact.html">Contact</a>
-      <a href="#" class="cart-link" data-open-cart aria-label="View Shopping Cart">Cart (<span data-cart-count>0</span>)</a>
+      <a href="#" class="cart-link" data-open-cart aria-label="View Shopping Cart">Cart <span class="cart-badge" data-cart-count>0</span></a>
     </nav>
     <button class="nav-toggle" aria-label="Toggle Navigation Menu">Menu</button>
   </div>
 </header>
 
-<main class="container">
-  <section class="shop-header">
-    <h1 style="font-size: 42px; margin: 0 0 8px;">Product Catalog</h1>
+<main class="container" style="padding-top: 40px;">
+  <section>
+    <h1 style="font-size: 44px; margin: 0 0 8px;">Product Catalog</h1>
     <p style="color: var(--muted); margin: 0;">In-store stock guide for pickup requests at Harvey Ave and Ross Rd locations.</p>
   </section>
 
@@ -261,7 +257,7 @@
 <div class="scrim" id="scrim"></div>
 <div class="cart-drawer" id="cart-drawer" aria-hidden="true">
   <div class="cart-head">
-    <h3 style="margin:0; font-size:18px;">Your Pickup Order</h3>
+    <h3 style="margin:0; font-size:20px;">Your Pickup Order</h3>
     <button class="cart-close" id="cart-close" aria-label="Close cart">&times;</button>
   </div>
   <div class="cart-items" id="cart-items"></div>
