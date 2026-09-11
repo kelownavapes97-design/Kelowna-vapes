@@ -1,77 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <!-- Primary SEO Meta Tags -->
-  <title>Kelowna Vapes — Harvey Ave &amp; Ross Road Vape Shops | Kelowna &amp; West Kelowna BC</title>
-  <meta name="description" content="Kelowna Vapes offers premier vape supplies across two locations: Harvey Ave in Kelowna and Ross Road in West Kelowna. Disposables, e-liquids, pods, and devices open late daily.">
-  <meta name="keywords" content="Kelowna vape shop, West Kelowna vapes, disposables Kelowna, e-liquids, vape mods, Harvey Ave vape shop, Ross Road vape shop">
-  <link rel="canonical" href="https://kelownavapes.co/">
-
-  <!-- Open Graph / Social Media -->
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://kelownavapes.co/">
-  <meta property="og:title" content="Kelowna Vapes — Harvey Ave &amp; Ross Road Locations">
-  <meta property="og:description" content="Two local shops in Kelowna and West Kelowna. Disposables, devices, e-liquids, and accessories. Open early to late 7 days a week.">
-  <meta property="og:image" content="https://kelownavapes.co/assets/images/og-cover.jpg">
-
-  <!-- Preconnects & Typography -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&amp;family=Work+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css">
-
-  <!-- Local Business Schema (Structured Data for SEO) -->
-  <script type="application/ld+json">
-  [
-    {
-      "@context": "https://schema.org",
-      "@type": "VapeShop",
-      "name": "Kelowna Vapes - Harvey Ave",
-      "image": "https://kelownavapes.co/assets/images/og-cover.jpg",
-      "url": "https://kelownavapes.co",
-      "telephone": "",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "2090 Harvey Ave",
-        "addressLocality": "Kelowna",
-        "addressRegion": "BC",
-        "postalCode": "V1Y 6G8",
-        "addressCountry": "CA"
-      },
-      "openingHoursSpecification": {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-        "opens": "07:00",
-        "closes": "23:00"
-      }
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "VapeShop",
-      "name": "Kelowna Vapes - Ross Road",
-      "image": "https://kelownavapes.co/assets/images/og-cover.jpg",
-      "url": "https://kelownavapes.co",
-      "telephone": "",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "1785 Ross Road",
-        "addressLocality": "West Kelowna",
-        "addressRegion": "BC",
-        "postalCode": "V1Z 1B9",
-        "addressCountry": "CA"
-      },
-      "openingHoursSpecification": {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-        "opens": "08:00",
-        "closes": "22:00"
-      }
-    }
-  ]
-  </script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kelowna Vapes — Harvey Ave &amp; Ross Rd Locations</title>
+<meta name="description" content="Kelowna's premier local vape shop. Carrying top brands like STLTH, Flavour Beast, Lost Mary, and G-Core across two convenient locations.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<style>
+  .hero {
+    padding: 60px 0 40px;
+    background: linear-gradient(180deg, var(--surface) 0%, var(--background) 100%);
+    border-bottom: 1px solid var(--surface-border);
+  }
+  .hero-content {
+    max-width: 700px;
+  }
+  .hero h1 {
+    font-size: 48px;
+    line-height: 1.1;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+  }
+  .hero p {
+    font-size: 18px;
+    color: var(--muted);
+    margin-bottom: 24px;
+  }
+  .featured-brands {
+    margin: 40px 0;
+  }
+  .brand-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 16px;
+    margin-top: 20px;
+  }
+  .brand-card {
+    background: var(--surface);
+    border: 1px solid var(--surface-border);
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    color: var(--text);
+    transition: all 0.2s ease;
+  }
+  .brand-card:hover {
+    border-color: var(--primary);
+    transform: translateY(-2px);
+  }
+  .brand-card h3 {
+    margin: 0;
+    font-size: 20px;
+  }
+</style>
 </head>
 <body>
 
@@ -79,16 +64,11 @@
 <div class="age-gate" id="age-gate" hidden>
   <div class="age-card">
     <svg class="flame" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <defs>
-        <linearGradient id="fg1" x1="0" y1="24" x2="24" y2="0">
-          <stop offset="0" stop-color="#ff6a2b"/>
-          <stop offset="1" stop-color="#2e7dd6"/>
-        </linearGradient>
-      </defs>
+      <defs><linearGradient id="fg1" x1="0" y1="24" x2="24" y2="0"><stop offset="0" stop-color="#ff6a2b"/><stop offset="1" stop-color="#2e7dd6"/></linearGradient></defs>
       <path d="M12 2C9 6 6 8 6 13a6 6 0 0 0 12 0c0-2-1-3-2-4 .3 2-1 3-2 2 1-3-1-5-2-9z" fill="url(#fg1)"/>
     </svg>
     <h2>Are you 19 or older?</h2>
-    <p>You must be of legal age in British Columbia to enter this site. Age verification is required upon purchase.</p>
+    <p>You must be of legal age in British Columbia to enter this site.</p>
     <div class="age-actions">
       <button class="btn btn-primary" id="age-enter">Yes, I'm 19+</button>
       <button class="btn btn-outline" id="age-leave">No, exit</button>
@@ -102,16 +82,11 @@
     <a href="index.html" class="wordmark" aria-label="Kelowna Vapes Homepage">
       Kelowna Vapes
       <svg class="flame" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <defs>
-          <linearGradient id="fg2" x1="0" y1="24" x2="24" y2="0">
-            <stop offset="0" stop-color="#ff6a2b"/>
-            <stop offset="1" stop-color="#2e7dd6"/>
-          </linearGradient>
-        </defs>
+        <defs><linearGradient id="fg2" x1="0" y1="24" x2="24" y2="0"><stop offset="0" stop-color="#ff6a2b"/><stop offset="1" stop-color="#2e7dd6"/></linearGradient></defs>
         <path d="M12 2C9 6 6 8 6 13a6 6 0 0 0 12 0c0-2-1-3-2-4 .3 2-1 3-2 2 1-3-1-5-2-9z" fill="url(#fg2)"/>
       </svg>
     </a>
-    <nav class="main-nav" aria-label="Main Navigation">
+    <nav class="main-nav">
       <a href="index.html" class="active">Home</a>
       <a href="shop.html">Shop</a>
       <a href="about.html">About &amp; Hours</a>
@@ -123,121 +98,41 @@
 </header>
 
 <!-- Hero Section -->
-<section class="hero reveal">
+<section class="hero">
   <div class="container">
-    <h1 class="hero-mark">
-      Kelowna Vapes
-      <svg class="flame" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <defs>
-          <linearGradient id="fg3" x1="0" y1="24" x2="24" y2="0">
-            <stop offset="0" stop-color="#ff6a2b"/>
-            <stop offset="1" stop-color="#2e7dd6"/>
-          </linearGradient>
-        </defs>
-        <path d="M12 2C9 6 6 8 6 13a6 6 0 0 0 12 0c0-2-1-3-2-4 .3 2-1 3-2 2 1-3-1-5-2-9z" fill="url(#fg3)"/>
-      </svg>
-    </h1>
-    <p class="hero-tagline">Kelowna &amp; West Kelowna’s local destination for disposables, pod systems, e-liquids, and accessories. Premium selection in stock every day.</p>
-    <a href="shop.html" class="btn btn-primary">Browse In-Stock Products</a>
-
-    <div class="hero-strip">
-      <div><strong>Harvey Ave (Kelowna)</strong>7am – 11pm, daily</div>
-      <div><strong>Ross Road (West Kelowna)</strong>8am – 10pm, daily</div>
-      <div><strong>Age Requirement</strong>19+ with government ID</div>
+    <div class="hero-content">
+      <h1>Your Local Source For Top Vape Brands</h1>
+      <p>Serving Kelowna at 2090 Harvey Ave and West Kelowna at 1785 Ross Rd. Stocking authentic devices, pods, disposables, and e-liquids.</p>
+      <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+        <a href="shop.html" class="btn btn-primary">Browse Catalog</a>
+        <a href="about.html" class="btn btn-outline">View Hours &amp; Locations</a>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- Categories -->
-<section class="reveal">
+<!-- Featured Brands -->
+<section class="featured-brands">
   <div class="container">
-    <div class="section-head">
-      <div>
-        <h2>Shop by Category</h2>
-        <p>In-stock inventory available at both locations.</p>
-      </div>
-      <a href="shop.html" class="btn btn-outline">View All Products</a>
-    </div>
-
-    <div class="tile-grid">
-      <a class="tile" data-cat="Disposables" href="shop.html?category=Disposables">
-        <svg class="tile-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          <rect x="9" y="2" width="6" height="15" rx="2" stroke="currentColor" stroke-width="1.5"/>
-          <path d="M12 17v5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-          <path d="M9 6h6" stroke="currentColor" stroke-width="1.5"/>
-        </svg>
-        <div>
-          <span>Single-use &amp; Closed Pods</span>
-          <h3>Disposables</h3>
-        </div>
+    <h2 style="font-size: 28px; margin-bottom: 8px;">Popular Brands In Stock</h2>
+    <p style="color: var(--muted); margin-top: 0;">Explore top products from leading manufacturers:</p>
+    <div class="brand-grid">
+      <a href="shop.html" class="brand-card">
+        <h3>STLTH</h3>
+        <p style="font-size: 13px; color: var(--muted); margin: 6px 0 0;">Pods &amp; Devices</p>
       </a>
-      <a class="tile" data-cat="Devices" href="shop.html?category=Devices">
-        <svg class="tile-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          <rect x="7" y="3" width="10" height="18" rx="2" stroke="currentColor" stroke-width="1.5"/>
-          <rect x="10" y="7" width="4" height="3" rx="1" stroke="currentColor" stroke-width="1.5"/>
-          <circle cx="12" cy="16" r="1.4" fill="currentColor"/>
-        </svg>
-        <div>
-          <span>Open Pods &amp; Hardware</span>
-          <h3>Devices</h3>
-        </div>
+      <a href="shop.html" class="brand-card">
+        <h3>Flavour Beast</h3>
+        <p style="font-size: 13px; color: var(--muted); margin: 6px 0 0;">Disposables &amp; Level X</p>
       </a>
-      <a class="tile" data-cat="E-Liquids" href="shop.html?category=E-Liquids">
-        <svg class="tile-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          <path d="M10 2h4v3.5l2 2.5v11a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2V8l2-2.5V2z" stroke="currentColor" stroke-width="1.5"/>
-          <path d="M9 12h6" stroke="currentColor" stroke-width="1.5"/>
-        </svg>
-        <div>
-          <span>Salt Nic &amp; Freebase</span>
-          <h3>E-Liquids</h3>
-        </div>
+      <a href="shop.html" class="brand-card">
+        <h3>Lost Mary</h3>
+        <p style="font-size: 13px; color: var(--muted); margin: 6px 0 0;">Rechargeable Disposables</p>
       </a>
-      <a class="tile" data-cat="Accessories" href="shop.html?category=Accessories">
-        <svg class="tile-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          <path d="M4 12a4 4 0 0 1 4-4c1 0 1.8.4 2.4 1M20 12a4 4 0 0 1-4 4c-1 0-1.8-.4-2.4-1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-          <path d="M9 9l6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-        </svg>
-        <div>
-          <span>Coils, Replacement Pods &amp; Batteries</span>
-          <h3>Accessories</h3>
-        </div>
+      <a href="shop.html" class="brand-card">
+        <h3>G-Core</h3>
+        <p style="font-size: 13px; color: var(--muted); margin: 6px 0 0;">Salt Nic E-Liquids</p>
       </a>
-    </div>
-  </div>
-</section>
-
-<!-- Locations Section -->
-<section class="reveal">
-  <div class="container">
-    <div class="section-head">
-      <div>
-        <h2>Visit Our Store Locations</h2>
-        <p>Serving Kelowna and West Kelowna 7 days a week.</p>
-      </div>
-    </div>
-    <div class="info-grid">
-      <dl class="info-list">
-        <dt>Kelowna Location</dt>
-        <dd>2090 Harvey Ave, Kelowna, BC</dd>
-        <dt>Harvey Hours</dt>
-        <dd>7:00am – 11:00pm, daily</dd>
-        
-        <dt>West Kelowna Location</dt>
-        <dd>1785 Ross Road, West Kelowna, BC</dd>
-        <dt>Ross Rd Hours</dt>
-        <dd>8:00am – 10:00pm, daily</dd>
-
-        <dt>Requirements</dt>
-        <dd>19+ Government Photo ID required</dd>
-      </dl>
-      <div class="map-wrap">
-        <iframe
-          src="https://www.google.com/maps?q=2090+Harvey+Ave,+Kelowna,+BC&amp;output=embed"
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-          title="Map location for Kelowna Vapes on Harvey Avenue">
-        </iframe>
-      </div>
     </div>
   </div>
 </section>
@@ -247,7 +142,7 @@
   <div class="container">
     <div>
       <div class="wordmark" style="font-size:16px;">Kelowna Vapes</div>
-      <p class="footer-note">For adult consumers 19+ only. Vaping products contain nicotine, an addictive substance. Please dispose of electronics and batteries responsibly.</p>
+      <p class="footer-note">For adult consumers 19+ only. Vaping products contain nicotine, an addictive substance.</p>
     </div>
     <div class="footer-badges">
       <span class="badge">Locally Owned</span>
@@ -267,7 +162,7 @@
 <div class="scrim" id="scrim"></div>
 <div class="cart-drawer" id="cart-drawer" aria-hidden="true">
   <div class="cart-head">
-    <h3 style="margin:0; font-size:16px;">Your Cart</h3>
+    <h3 style="margin:0; font-size:16px;">Your Pickup Order</h3>
     <button class="cart-close" id="cart-close" aria-label="Close cart">&times;</button>
   </div>
   <div class="cart-items" id="cart-items"></div>
