@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // 1. Age Gate Handler
+  // 1. Age Gate Handler with Smooth Fade Transition
   const ageGate = document.getElementById('age-gate');
   const ageEnter = document.getElementById('age-enter');
   const ageLeave = document.getElementById('age-leave');
@@ -18,8 +18,12 @@ document.addEventListener('DOMContentLoaded', () => {
     ageEnter.addEventListener('click', (e) => {
       e.preventDefault();
       localStorage.setItem('kv_age_verified', 'true');
+      
       if (ageGate) {
-        ageGate.style.display = 'none';
+        ageGate.classList.add('fade-out');
+        setTimeout(() => {
+          ageGate.style.display = 'none';
+        }, 400);
       }
     });
   }
@@ -41,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 3. Cart & Pickup Order Functionality
+  // 3. Cart & Pickup Order System
   const cartDrawer = document.getElementById('cart-drawer');
   const scrim = document.getElementById('scrim');
   const cartClose = document.getElementById('cart-close');
@@ -56,14 +60,18 @@ document.addEventListener('DOMContentLoaded', () => {
   function saveAndRenderCart() {
     localStorage.setItem('kv_cart', JSON.stringify(cart));
     
-    // Update badge numbers
+    // Update badge numbers with small pulse effect
     const totalCount = cart.reduce((sum, item) => sum + item.quantity, 0);
-    cartCountBadges.forEach(badge => badge.textContent = totalCount);
+    cartCountBadges.forEach(badge => {
+      badge.textContent = totalCount;
+      badge.style.transform = 'scale(1.3)';
+      setTimeout(() => badge.style.transform = 'scale(1)', 200);
+    });
 
-    // Update cart items container
+    // Update cart drawer items
     if (cartItemsContainer) {
       if (cart.length === 0) {
-        cartItemsContainer.innerHTML = '<p style="color: var(--muted); margin: 0;">Your cart is empty.</p>';
+        cartItemsContainer.innerHTML = '<p style="color: var(--muted); margin: 20px 0; text-align: center;">Your pickup cart is currently empty.</p>';
       } else {
         cartItemsContainer.innerHTML = cart.map(item => `
           <div class="cart-item">
@@ -71,13 +79,13 @@ document.addEventListener('DOMContentLoaded', () => {
               <h4>${item.title}</h4>
               <p>$${item.price.toFixed(2)} × ${item.quantity}</p>
             </div>
-            <button style="background:none; border:none; color:var(--primary); cursor:pointer; font-weight:600;" onclick="removeFromCart('${item.id}')">Remove</button>
+            <button style="background:none; border:none; color:var(--primary); cursor:pointer; font-weight:600; font-size:13px;" onclick="removeFromCart('${item.id}')">Remove</button>
           </div>
         `).join('');
       }
     }
 
-    // Update total price
+    // Update total price calculation
     if (cartTotalAmount) {
       const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
       cartTotalAmount.textContent = `$${total.toFixed(2)}`;
@@ -115,7 +123,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (cartClose) cartClose.addEventListener('click', closeCart);
   if (scrim) scrim.addEventListener('click', closeCart);
 
-  // Add to cart buttons
+  // Add to cart click event listener
   document.querySelectorAll('[data-add-to-cart]').forEach(button => {
     button.addEventListener('click', () => {
       const id = button.dataset.id;
@@ -134,17 +142,17 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Email Request Checkout
+  // Email Checkout Generation
   if (checkoutBtn) {
     checkoutBtn.addEventListener('click', () => {
       if (cart.length === 0) {
-        alert('Your cart is currently empty.');
+        alert('Your pickup cart is empty.');
         return;
       }
-      const itemDetails = cart.map(i => `${i.title} (Qty: ${i.quantity}) - $${(i.price * i.quantity).toFixed(2)}`).join('\n');
+      const itemDetails = cart.map(i => `- ${i.title} (Qty: ${i.quantity}) — $${(i.price * i.quantity).toFixed(2)}`).join('\n');
       const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
       const subject = encodeURIComponent('In-Store Pickup Request — Kelowna Vapes');
-      const body = encodeURIComponent(`Hello Kelowna Vapes,\n\nI would like to request an in-store pickup order:\n\n${itemDetails}\n\nTotal: $${total.toFixed(2)}\n\nPlease confirm availability and pickup location.`);
+      const body = encodeURIComponent(`Hello Kelowna Vapes,\n\nI would like to request an in-store pickup order:\n\n${itemDetails}\n\nTotal: $${total.toFixed(2)}\n\nPlease confirm product availability and pickup location.`);
       
       window.location.href = `mailto:info@kelownavapes.co?subject=${subject}&body=${body}`;
     });
