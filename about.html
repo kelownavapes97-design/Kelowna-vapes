@@ -20,10 +20,15 @@
     background: var(--surface);
     border: 1px solid var(--surface-border-light);
     border-radius: var(--radius-md);
-    padding: 28px;
+    padding: 32px;
+    transition: transform 0.3s ease;
+  }
+  .store-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--surface-border);
   }
   .store-card h2 {
-    font-size: 24px;
+    font-size: 26px;
     margin-top: 0;
     margin-bottom: 8px;
   }
@@ -33,7 +38,7 @@
     margin-top: 16px;
   }
   .hours-table td {
-    padding: 10px 0;
+    padding: 12px 0;
     border-bottom: 1px solid var(--surface-border);
     font-size: 15px;
   }
@@ -51,17 +56,22 @@
   .brand-chip {
     background: var(--surface);
     border: 1px solid var(--surface-border-light);
-    padding: 10px 20px;
+    padding: 10px 22px;
     border-radius: 20px;
     font-weight: 600;
     font-size: 14px;
+    transition: all 0.25s ease;
+  }
+  .brand-chip:hover {
+    border-color: var(--primary);
+    color: #fff;
   }
 </style>
 </head>
 <body>
 
 <!-- Age Gate Overlay -->
-<div class="age-gate" id="age-gate" style="display: none;">
+<div class="age-gate" id="age-gate">
   <div class="age-card">
     <svg class="flame" viewBox="0 0 24 24" fill="none" aria-hidden="true">
       <defs><linearGradient id="fg1" x1="0" y1="24" x2="24" y2="0"><stop offset="0" stop-color="#ff6a2b"/><stop offset="1" stop-color="#2e7dd6"/></linearGradient></defs>
@@ -91,7 +101,7 @@
       <a href="shop.html">Shop</a>
       <a href="about.html" class="active">About &amp; Hours</a>
       <a href="contact.html">Contact</a>
-      <a href="#" class="cart-link" data-open-cart aria-label="View Shopping Cart">Cart (<span data-cart-count>0</span>)</a>
+      <a href="#" class="cart-link" data-open-cart aria-label="View Shopping Cart">Cart <span class="cart-badge" data-cart-count>0</span></a>
     </nav>
     <button class="nav-toggle" aria-label="Toggle Navigation Menu">Menu</button>
   </div>
@@ -100,7 +110,7 @@
 <section style="padding: 40px 0 60px;">
   <div class="container">
     <div>
-      <h1 style="font-size: 42px; margin: 0 0 8px;">About &amp; Store Hours</h1>
+      <h1 style="font-size: 44px; margin: 0 0 8px;">About &amp; Store Hours</h1>
       <p style="color: var(--muted); margin: 0;">Serving Kelowna and West Kelowna with top-quality adult vaping products and dependable customer service.</p>
     </div>
 
@@ -161,7 +171,7 @@
 <div class="scrim" id="scrim"></div>
 <div class="cart-drawer" id="cart-drawer" aria-hidden="true">
   <div class="cart-head">
-    <h3 style="margin:0; font-size:18px;">Your Pickup Order</h3>
+    <h3 style="margin:0; font-size:20px;">Your Pickup Order</h3>
     <button class="cart-close" id="cart-close" aria-label="Close cart">&times;</button>
   </div>
   <div class="cart-items" id="cart-items"></div>
