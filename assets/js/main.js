@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const openCartTriggers = document.querySelectorAll('[data-open-cart]');
   const cartItemsContainer = document.getElementById('cart-items');
   const cartTotalAmount = document.getElementById('cart-total-amount');
-  const cartCount Badges = document.querySelectorAll('[data-cart-count]');
+  const cartCountBadges = document.querySelectorAll('[data-cart-count]');
   const checkoutBtn = document.getElementById('checkout-btn');
 
   let cart = JSON.parse(localStorage.getItem('kv_cart')) || [];
