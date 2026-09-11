@@ -16,10 +16,11 @@
   --font-heading: 'Oswald', sans-serif;
   --font-body: 'Work Sans', sans-serif;
 
-  --radius-sm: 6px;
-  --radius-md: 12px;
-  --radius-lg: 18px;
-  --shadow-main: 0 12px 32px rgba(0, 0, 0, 0.4);
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --shadow-main: 0 16px 40px rgba(0, 0, 0, 0.5);
+  --shadow-card: 0 8px 24px rgba(0, 0, 0, 0.3);
 }
 
 * {
@@ -34,6 +35,7 @@ body {
   font-family: var(--font-body);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -58,6 +60,7 @@ h1, h2, h3, h4, h5, h6 {
   position: sticky;
   top: 0;
   z-index: 100;
+  transition: background 0.3s ease;
 }
 
 .site-header .container {
@@ -80,9 +83,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .flame {
-  width: 22px;
-  height: 22px;
-  filter: drop-shadow(0 0 6px var(--primary-glow));
+  width: 24px;
+  height: 24px;
+  filter: drop-shadow(0 0 8px var(--primary-glow));
+  transition: transform 0.3s ease;
+}
+
+.wordmark:hover .flame {
+  transform: scale(1.15) rotate(-5deg);
 }
 
 .main-nav {
@@ -96,7 +104,9 @@ h1, h2, h3, h4, h5, h6 {
   text-decoration: none;
   font-weight: 500;
   font-size: 15px;
-  transition: color 0.2s ease, transform 0.2s ease;
+  transition: color 0.25s ease, transform 0.25s ease;
+  position: relative;
+  padding: 4px 0;
 }
 
 .main-nav a:hover, 
@@ -104,19 +114,32 @@ h1, h2, h3, h4, h5, h6 {
   color: #ffffff;
 }
 
-.main-nav a.active {
-  position: relative;
-}
-
-.main-nav a.active::after {
+.main-nav a::after {
   content: '';
   position: absolute;
-  bottom: -6px;
+  bottom: 0;
   left: 0;
-  right: 0;
+  width: 0;
   height: 2px;
   background: var(--primary);
   border-radius: 2px;
+  transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.main-nav a:hover::after,
+.main-nav a.active::after {
+  width: 100%;
+}
+
+.cart-badge {
+  background: var(--primary);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 10px;
+  margin-left: 6px;
+  transition: transform 0.2s ease;
 }
 
 .nav-toggle {
@@ -144,11 +167,12 @@ h1, h2, h3, h4, h5, h6 {
     padding: 24px;
     gap: 16px;
     border-bottom: 1px solid var(--surface-border);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
   }
   .main-nav.active {
     display: flex;
   }
-  .main-nav a.active::after {
+  .main-nav a::after {
     display: none;
   }
 }
@@ -158,6 +182,7 @@ h1, h2, h3, h4, h5, h6 {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 8px;
   padding: 12px 24px;
   border-radius: var(--radius-sm);
   font-family: var(--font-heading);
@@ -168,7 +193,7 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: 0.5px;
   cursor: pointer;
   border: 1px solid transparent;
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .btn-primary {
@@ -180,7 +205,7 @@ h1, h2, h3, h4, h5, h6 {
 .btn-primary:hover {
   background: linear-gradient(135deg, var(--primary-hover) 0%, #eb5b1c 100%);
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(255, 106, 43, 0.4);
+  box-shadow: 0 8px 24px rgba(255, 106, 43, 0.45);
 }
 
 .btn-outline {
@@ -193,6 +218,7 @@ h1, h2, h3, h4, h5, h6 {
   background: var(--surface-hover);
   border-color: var(--muted);
   color: #ffffff;
+  transform: translateY(-2px);
 }
 
 .btn-block {
@@ -200,18 +226,21 @@ h1, h2, h3, h4, h5, h6 {
   width: 100%;
 }
 
-/* Age Gate Modal */
+/* Age Gate Modal & Smooth Transitions */
 .age-gate {
   position: fixed;
   inset: 0;
-  background: rgba(11, 13, 17, 0.92);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  background: rgba(11, 13, 17, 0.94);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 1000;
   padding: 20px;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .age-card {
@@ -223,17 +252,40 @@ h1, h2, h3, h4, h5, h6 {
   width: 100%;
   text-align: center;
   box-shadow: var(--shadow-main);
+  transform: scale(1) translateY(0);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  animation: modalEnter 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes modalEnter {
+  from {
+    opacity: 0;
+    transform: scale(0.92) translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.age-gate.fade-out {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.age-gate.fade-out .age-card {
+  transform: scale(0.95) translateY(-10px);
 }
 
 .age-card .flame {
-  width: 54px;
-  height: 54px;
+  width: 56px;
+  height: 56px;
   margin-bottom: 16px;
 }
 
 .age-card h2 {
   margin: 0 0 10px;
-  font-size: 28px;
+  font-size: 30px;
 }
 
 .age-card p {
@@ -255,11 +307,11 @@ h1, h2, h3, h4, h5, h6 {
 .scrim {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.75);
   backdrop-filter: blur(4px);
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.35s ease;
   z-index: 200;
 }
 
@@ -278,11 +330,11 @@ h1, h2, h3, h4, h5, h6 {
   background: var(--surface);
   border-left: 1px solid var(--surface-border-light);
   transform: translateX(100%);
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   z-index: 201;
   display: flex;
   flex-direction: column;
-  box-shadow: -10px 0 30px rgba(0,0,0,0.5);
+  box-shadow: -10px 0 30px rgba(0,0,0,0.6);
 }
 
 .cart-drawer.open {
@@ -304,11 +356,12 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 28px;
   cursor: pointer;
   line-height: 1;
-  transition: color 0.2s ease;
+  transition: color 0.2s ease, transform 0.2s ease;
 }
 
 .cart-close:hover {
   color: #ffffff;
+  transform: rotate(90deg);
 }
 
 .cart-items {
@@ -321,8 +374,14 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 12px 0;
+  padding: 14px 0;
   border-bottom: 1px solid var(--surface-border-light);
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .cart-item-info h4 {
@@ -341,7 +400,7 @@ h1, h2, h3, h4, h5, h6 {
 .cart-footer {
   padding: 24px;
   border-top: 1px solid var(--surface-border);
-  background: rgba(11, 13, 17, 0.4);
+  background: rgba(11, 13, 17, 0.5);
 }
 
 .cart-total {
