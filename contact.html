@@ -3,21 +3,77 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contact — Kelowna Vapes</title>
+<title>Contact Us — Kelowna Vapes</title>
+<meta name="description" content="Get in touch with Kelowna Vapes. Questions about stock, hours, or pickup orders at our Harvey Ave or Ross Road locations.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
+<style>
+  .contact-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-top: 24px;
+  }
+  @media (max-width: 768px) {
+    .contact-layout {
+      grid-template-columns: 1fr;
+    }
+  }
+  .form-group {
+    margin-bottom: 20px;
+  }
+  .form-group label {
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 6px;
+    color: var(--text);
+  }
+  .form-control {
+    width: 100%;
+    padding: 12px 14px;
+    background: var(--surface);
+    border: 1px solid var(--surface-border);
+    border-radius: 6px;
+    color: var(--text);
+    font-family: inherit;
+    font-size: 15px;
+    box-sizing: border-box;
+  }
+  .form-control:focus {
+    outline: none;
+    border-color: var(--primary);
+  }
+  textarea.form-control {
+    min-height: 140px;
+    resize: vertical;
+  }
+  .location-card {
+    background: var(--surface);
+    border: 1px solid var(--surface-border);
+    border-radius: 8px;
+    padding: 24px;
+    margin-bottom: 20px;
+  }
+  .location-card h3 {
+    margin: 0 0 8px;
+    font-size: 20px;
+  }
+</style>
 </head>
 <body>
 
+<!-- Age Gate -->
 <div class="age-gate" id="age-gate" hidden>
   <div class="age-card">
-    <svg class="flame" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg class="flame" viewBox="0 0 24 24" fill="none" aria-hidden="true">
       <defs><linearGradient id="fg1" x1="0" y1="24" x2="24" y2="0"><stop offset="0" stop-color="#ff6a2b"/><stop offset="1" stop-color="#2e7dd6"/></linearGradient></defs>
       <path d="M12 2C9 6 6 8 6 13a6 6 0 0 0 12 0c0-2-1-3-2-4 .3 2-1 3-2 2 1-3-1-5-2-9z" fill="url(#fg1)"/>
     </svg>
     <h2>Are you 19 or older?</h2>
-    <p>You must be of legal vaping age in British Columbia to enter this site.</p>
+    <p>You must be of legal age in British Columbia to enter this site.</p>
     <div class="age-actions">
       <button class="btn btn-primary" id="age-enter">Yes, I'm 19+</button>
       <button class="btn btn-outline" id="age-leave">No, exit</button>
@@ -25,11 +81,12 @@
   </div>
 </div>
 
+<!-- Header -->
 <header class="site-header">
   <div class="container">
-    <a href="index.html" class="wordmark">
+    <a href="index.html" class="wordmark" aria-label="Kelowna Vapes Homepage">
       Kelowna Vapes
-      <svg class="flame" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg class="flame" viewBox="0 0 24 24" fill="none" aria-hidden="true">
         <defs><linearGradient id="fg2" x1="0" y1="24" x2="24" y2="0"><stop offset="0" stop-color="#ff6a2b"/><stop offset="1" stop-color="#2e7dd6"/></linearGradient></defs>
         <path d="M12 2C9 6 6 8 6 13a6 6 0 0 0 12 0c0-2-1-3-2-4 .3 2-1 3-2 2 1-3-1-5-2-9z" fill="url(#fg2)"/>
       </svg>
@@ -39,61 +96,97 @@
       <a href="shop.html">Shop</a>
       <a href="about.html">About &amp; Hours</a>
       <a href="contact.html" class="active">Contact</a>
-      <a href="#" class="cart-link" data-open-cart>Cart (<span data-cart-count>0</span>)</a>
+      <a href="#" class="cart-link" data-open-cart aria-label="View Shopping Cart">Cart (<span data-cart-count>0</span>)</a>
     </nav>
-    <button class="nav-toggle" aria-label="Toggle menu">Menu</button>
+    <button class="nav-toggle" aria-label="Toggle Navigation Menu">Menu</button>
   </div>
 </header>
 
-<section>
+<section style="padding-bottom: 50px;">
   <div class="container">
     <div class="section-head">
       <div>
-        <h1 style="font-size: 40px;">Contact</h1>
-        <p>Questions about stock, hours, or an order — send a message.</p>
+        <h1 style="font-size: 40px;">Contact Us</h1>
+        <p>Questions about product stock, specific flavors, or order requests — send us a message.</p>
       </div>
     </div>
 
-    <form class="form-grid" action="mailto:orders@kelownavapes.ca" method="post" enctype="text/plain">
+    <div class="contact-layout">
+      <!-- Contact Form -->
+      <form action="mailto:info@kelownavapes.co" method="post" enctype="text/plain">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" class="form-control" placeholder="Your name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" class="form-control" placeholder="you@example.com" required>
+        </div>
+        <div class="form-group">
+          <label for="location">Preferred Location</label>
+          <select id="location" name="location" class="form-control">
+            <option value="Harvey Ave (Kelowna)">Harvey Ave (Kelowna)</option>
+            <option value="Ross Rd (West Kelowna)">Ross Rd (West Kelowna)</option>
+            <option value="General Inquiry">General Inquiry</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" class="form-control" placeholder="How can we help you?" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Send Message</button>
+      </form>
+
+      <!-- Location Quick Reference -->
       <div>
-        <label for="name">Name</label>
-        <input type="text" id="name" name="name" required>
+        <div class="location-card">
+          <h3>Kelowna Store</h3>
+          <p style="margin: 0 0 10px; color: var(--muted);">2090 Harvey Ave, Kelowna, BC</p>
+          <p style="margin: 0; font-weight: 500;">Hours: 7:00 AM – 11:00 PM Daily</p>
+        </div>
+
+        <div class="location-card">
+          <h3>West Kelowna Store</h3>
+          <p style="margin: 0 0 10px; color: var(--muted);">1785 Ross Rd, West Kelowna, BC</p>
+          <p style="margin: 0; font-weight: 500;">Hours: 8:00 AM – 10:00 PM Daily</p>
+        </div>
       </div>
-      <div>
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" required>
-      </div>
-      <div>
-        <label for="message">Message</label>
-        <textarea id="message" name="message" required></textarea>
-      </div>
-      <button type="submit" class="btn btn-primary">Send message</button>
-    </form>
+    </div>
   </div>
 </section>
 
+<!-- Footer -->
 <footer class="site-footer">
   <div class="container">
     <div>
       <div class="wordmark" style="font-size:16px;">Kelowna Vapes</div>
-      <p class="footer-note">For adult smokers and vapers 19+ only. Vaping products contain nicotine, an addictive chemical.</p>
+      <p class="footer-note">For adult consumers 19+ only. Vaping products contain nicotine, an addictive substance.</p>
+    </div>
+    <div class="footer-badges">
+      <span class="badge">Locally Owned</span>
+      <span class="badge">19+ ID Checked</span>
+      <span class="badge">In-Store Pickup</span>
     </div>
     <div>
-      <p style="margin:0; color:var(--muted); font-size:14px;">2090 Harvey Ave, Kelowna, BC<br>7am – 11pm daily</p>
+      <p style="margin:0; color:var(--muted); font-size:14px;">
+        <strong>Kelowna:</strong> 2090 Harvey Ave (7am–11pm)<br>
+        <strong>West Kelowna:</strong> 1785 Ross Rd (8am–10pm)
+      </p>
     </div>
   </div>
 </footer>
 
+<!-- Cart Drawer -->
 <div class="scrim" id="scrim"></div>
-<div class="cart-drawer" id="cart-drawer">
+<div class="cart-drawer" id="cart-drawer" aria-hidden="true">
   <div class="cart-head">
-    <h3 style="margin:0; font-size:16px;">Your cart</h3>
+    <h3 style="margin:0; font-size:16px;">Your Pickup Order</h3>
     <button class="cart-close" id="cart-close" aria-label="Close cart">&times;</button>
   </div>
   <div class="cart-items" id="cart-items"></div>
   <div class="cart-footer">
     <div class="cart-total"><span>Total</span><span id="cart-total-amount">$0.00</span></div>
-    <button class="btn btn-primary btn-block" id="checkout-btn">Request order by email</button>
+    <button class="btn btn-primary btn-block" id="checkout-btn">Request Order by Email</button>
   </div>
 </div>
 
