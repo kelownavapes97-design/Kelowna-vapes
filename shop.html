@@ -19,6 +19,34 @@
     text-transform: uppercase;
   }
 
+  /* Header & Cart Badge */
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .cart-link {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 600;
+    color: var(--text);
+    text-decoration: none;
+    padding: 8px 14px;
+    border-radius: var(--radius-sm);
+    background: var(--surface-glass);
+    border: 1px solid var(--surface-border);
+  }
+  .cart-badge {
+    background: var(--primary);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 800;
+    padding: 2px 7px;
+    border-radius: 10px;
+  }
+
   /* Filter Bar Styling */
   .filter-bar {
     display: flex;
@@ -113,6 +141,12 @@
     border-color: var(--primary);
   }
 
+  .card-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
   @media (max-width: 768px) {
     .shop-header h1 { font-size: 32px; }
     .filter-bar { gap: 8px; }
@@ -138,14 +172,19 @@
       <a href="about.html">About &amp; Hours</a>
       <a href="contact.html">Contact</a>
     </nav>
-    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle Navigation Menu">
-      <span>Menu</span>
-      <div class="nav-toggle-icon" aria-hidden="true">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-    </button>
+    <div class="header-actions">
+      <a href="cart.html" class="cart-link">
+        🛒 Cart <span class="cart-badge" id="cart-count">0</span>
+      </a>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle Navigation Menu">
+        <span>Menu</span>
+        <div class="nav-toggle-icon" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </button>
+    </div>
   </div>
 </header>
 
@@ -173,7 +212,7 @@
   <div class="product-grid">
 
     <!-- STLTH X GEEKBAR -->
-    <div class="gradient-border-card product-card" data-category="Disposables">
+    <div class="gradient-border-card product-card" data-category="Disposables" data-title="STLTH X GEEKBAR" data-price="Price on Request">
       <div>
         <span class="product-badge">DISPOSABLE</span>
         <h2 class="product-title">STLTH X GEEKBAR</h2>
@@ -190,11 +229,14 @@
           <option>Red Punch Ice</option>
         </select>
       </div>
-      <button class="btn btn-outline" style="width: 100%;">In-Stock at Stores</button>
+      <div class="card-actions">
+        <button class="btn btn-primary add-to-cart-btn" style="width: 100%;">Add to Cart</button>
+        <button class="btn btn-outline" style="width: 100%;">In-Stock at Stores</button>
+      </div>
     </div>
 
     <!-- ELFBAR 80K -->
-    <div class="gradient-border-card product-card" data-category="Disposables">
+    <div class="gradient-border-card product-card" data-category="Disposables" data-title="ELFBAR 80K" data-price="Price on Request">
       <div>
         <span class="product-badge">DISPOSABLE</span>
         <h2 class="product-title">ELFBAR 80K</h2>
@@ -217,11 +259,14 @@
           <option>Watermelon Ice</option>
         </select>
       </div>
-      <button class="btn btn-outline" style="width: 100%;">In-Stock at Stores</button>
+      <div class="card-actions">
+        <button class="btn btn-primary add-to-cart-btn" style="width: 100%;">Add to Cart</button>
+        <button class="btn btn-outline" style="width: 100%;">In-Stock at Stores</button>
+      </div>
     </div>
 
     <!-- ALLO 65K -->
-    <div class="gradient-border-card product-card" data-category="Disposables">
+    <div class="gradient-border-card product-card" data-category="Disposables" data-title="ALLO 65K" data-price="Price on Request">
       <div>
         <span class="product-badge">DISPOSABLE</span>
         <h2 class="product-title">ALLO 65K</h2>
@@ -238,11 +283,14 @@
           <option>White Peach Razz</option>
         </select>
       </div>
-      <button class="btn btn-outline" style="width: 100%;">In-Stock at Stores</button>
+      <div class="card-actions">
+        <button class="btn btn-primary add-to-cart-btn" style="width: 100%;">Add to Cart</button>
+        <button class="btn btn-outline" style="width: 100%;">In-Stock at Stores</button>
+      </div>
     </div>
 
     <!-- AERIX -->
-    <div class="gradient-border-card product-card" data-category="Disposables">
+    <div class="gradient-border-card product-card" data-category="Disposables" data-title="AERIX" data-price="Price on Request">
       <div>
         <span class="product-badge">DISPOSABLE</span>
         <h2 class="product-title">AERIX</h2>
@@ -260,11 +308,14 @@
           <option>White G</option>
         </select>
       </div>
-      <button class="btn btn-outline" style="width: 100%;">In-Stock at Stores</button>
+      <div class="card-actions">
+        <button class="btn btn-primary add-to-cart-btn" style="width: 100%;">Add to Cart</button>
+        <button class="btn btn-outline" style="width: 100%;">In-Stock at Stores</button>
+      </div>
     </div>
 
     <!-- Rifbar -->
-    <div class="gradient-border-card product-card" data-category="Disposables">
+    <div class="gradient-border-card product-card" data-category="Disposables" data-title="Rifbar" data-price="Price on Request">
       <div>
         <span class="product-badge">DISPOSABLE</span>
         <h2 class="product-title">Rifbar</h2>
@@ -285,11 +336,14 @@
           <option>Watermelon Ice</option>
         </select>
       </div>
-      <button class="btn btn-outline" style="width: 100%;">In-Stock at Stores</button>
+      <div class="card-actions">
+        <button class="btn btn-primary add-to-cart-btn" style="width: 100%;">Add to Cart</button>
+        <button class="btn btn-outline" style="width: 100%;">In-Stock at Stores</button>
+      </div>
     </div>
 
     <!-- Lost Vape -->
-    <div class="gradient-border-card product-card" data-category="Disposables">
+    <div class="gradient-border-card product-card" data-category="Disposables" data-title="Lost Vape" data-price="Price on Request">
       <div>
         <span class="product-badge">DISPOSABLE</span>
         <h2 class="product-title">Lost Vape</h2>
@@ -312,11 +366,14 @@
           <option>Watermelon Ice</option>
         </select>
       </div>
-      <button class="btn btn-outline" style="width: 100%;">In-Stock at Stores</button>
+      <div class="card-actions">
+        <button class="btn btn-primary add-to-cart-btn" style="width: 100%;">Add to Cart</button>
+        <button class="btn btn-outline" style="width: 100%;">In-Stock at Stores</button>
+      </div>
     </div>
 
     <!-- Fog Pro X -->
-    <div class="gradient-border-card product-card" data-category="Disposables">
+    <div class="gradient-border-card product-card" data-category="Disposables" data-title="Fog Pro X" data-price="Price on Request">
       <div>
         <span class="product-badge">DISPOSABLE</span>
         <h2 class="product-title">Fog Pro X</h2>
@@ -339,11 +396,14 @@
           <option>Watermelon Ice</option>
         </select>
       </div>
-      <button class="btn btn-outline" style="width: 100%;">In-Stock at Stores</button>
+      <div class="card-actions">
+        <button class="btn btn-primary add-to-cart-btn" style="width: 100%;">Add to Cart</button>
+        <button class="btn btn-outline" style="width: 100%;">In-Stock at Stores</button>
+      </div>
     </div>
 
     <!-- 6ixbar -->
-    <div class="gradient-border-card product-card" data-category="Disposables">
+    <div class="gradient-border-card product-card" data-category="Disposables" data-title="6ixbar" data-price="Price on Request">
       <div>
         <span class="product-badge">DISPOSABLE</span>
         <h2 class="product-title">6ixbar</h2>
@@ -366,11 +426,14 @@
           <option>Watermelon Ice</option>
         </select>
       </div>
-      <button class="btn btn-outline" style="width: 100%;">In-Stock at Stores</button>
+      <div class="card-actions">
+        <button class="btn btn-primary add-to-cart-btn" style="width: 100%;">Add to Cart</button>
+        <button class="btn btn-outline" style="width: 100%;">In-Stock at Stores</button>
+      </div>
     </div>
 
     <!-- TwistBar 3in1 -->
-    <div class="gradient-border-card product-card" data-category="Disposables">
+    <div class="gradient-border-card product-card" data-category="Disposables" data-title="TwistBar 3in1" data-price="Price on Request">
       <div>
         <span class="product-badge">DISPOSABLE</span>
         <h2 class="product-title">TwistBar 3in1</h2>
@@ -393,11 +456,14 @@
           <option>Watermelon Ice</option>
         </select>
       </div>
-      <button class="btn btn-outline" style="width: 100%;">In-Stock at Stores</button>
+      <div class="card-actions">
+        <button class="btn btn-primary add-to-cart-btn" style="width: 100%;">Add to Cart</button>
+        <button class="btn btn-outline" style="width: 100%;">In-Stock at Stores</button>
+      </div>
     </div>
 
     <!-- ALLO 25k -->
-    <div class="gradient-border-card product-card" data-category="Disposables">
+    <div class="gradient-border-card product-card" data-category="Disposables" data-title="ALLO 25k" data-price="Price on Request">
       <div>
         <span class="product-badge">DISPOSABLE</span>
         <h2 class="product-title">ALLO 25k</h2>
@@ -420,11 +486,14 @@
           <option>Watermelon Ice</option>
         </select>
       </div>
-      <button class="btn btn-outline" style="width: 100%;">In-Stock at Stores</button>
+      <div class="card-actions">
+        <button class="btn btn-primary add-to-cart-btn" style="width: 100%;">Add to Cart</button>
+        <button class="btn btn-outline" style="width: 100%;">In-Stock at Stores</button>
+      </div>
     </div>
 
     <!-- Level X G2 -->
-    <div class="gradient-border-card product-card" data-category="Disposables">
+    <div class="gradient-border-card product-card" data-category="Disposables" data-title="Level X G2" data-price="Price on Request">
       <div>
         <span class="product-badge">DISPOSABLE</span>
         <h2 class="product-title">Level X G2</h2>
@@ -447,11 +516,14 @@
           <option>Watermelon Ice</option>
         </select>
       </div>
-      <button class="btn btn-outline" style="width: 100%;">In-Stock at Stores</button>
+      <div class="card-actions">
+        <button class="btn btn-primary add-to-cart-btn" style="width: 100%;">Add to Cart</button>
+        <button class="btn btn-outline" style="width: 100%;">In-Stock at Stores</button>
+      </div>
     </div>
 
     <!-- ELFBAR 20K -->
-    <div class="gradient-border-card product-card" data-category="Disposables">
+    <div class="gradient-border-card product-card" data-category="Disposables" data-title="ELFBAR 20K" data-price="Price on Request">
       <div>
         <span class="product-badge">DISPOSABLE</span>
         <h2 class="product-title">ELFBAR 20K</h2>
@@ -470,11 +542,14 @@
           <option>Watermelon Ice</option>
         </select>
       </div>
-      <button class="btn btn-outline" style="width: 100%;">In-Stock at Stores</button>
+      <div class="card-actions">
+        <button class="btn btn-primary add-to-cart-btn" style="width: 100%;">Add to Cart</button>
+        <button class="btn btn-outline" style="width: 100%;">In-Stock at Stores</button>
+      </div>
     </div>
 
     <!-- G-CORE E-Liquid -->
-    <div class="gradient-border-card product-card" data-category="E-Liquids">
+    <div class="gradient-border-card product-card" data-category="E-Liquids" data-title="G-CORE" data-price="Price on Request">
       <div>
         <span class="product-badge">E-Liquids</span>
         <h2 class="product-title">G-CORE</h2>
@@ -491,7 +566,10 @@
           <option>Peach Ice</option>
         </select>
       </div>
-      <button class="btn btn-outline" style="width: 100%;">In-Stock at Stores</button>
+      <div class="card-actions">
+        <button class="btn btn-primary add-to-cart-btn" style="width: 100%;">Add to Cart</button>
+        <button class="btn btn-outline" style="width: 100%;">In-Stock at Stores</button>
+      </div>
     </div>
 
   </div>
@@ -514,6 +592,51 @@
   </div>
 </footer>
 
+<script>
+  // Simple Cart Management Script
+  function getCart() {
+    return JSON.parse(localStorage.getItem('cart')) || [];
+  }
+
+  function updateCartBadge() {
+    const cart = getCart();
+    const count = cart.reduce((total, item) => total + item.quantity, 0);
+    const badge = document.getElementById('cart-count');
+    if (badge) badge.textContent = count;
+  }
+
+  document.querySelectorAll('.add-to-cart-btn').forEach(button => {
+    button.addEventListener('click', (e) => {
+      const card = e.target.closest('.product-card');
+      const title = card.getAttribute('data-title');
+      const price = card.getAttribute('data-price');
+      const flavorSelect = card.querySelector('.flavor-select');
+      const flavor = flavorSelect ? flavorSelect.value : '';
+
+      if (flavorSelect && !flavor) {
+        alert('Please select a flavor before adding to cart.');
+        return;
+      }
+
+      const cart = getCart();
+      const existingIndex = cart.findIndex(item => item.title === title && item.flavor === flavor);
+
+      if (existingIndex > -1) {
+        cart[existingIndex].quantity += 1;
+      } else {
+        cart.push({ title, price, flavor, quantity: 1 });
+      }
+
+      localStorage.setItem('cart', JSON.stringify(cart));
+      updateCartBadge();
+      
+      button.textContent = 'Added!';
+      setTimeout(() => { button.textContent = 'Add to Cart'; }, 1500);
+    });
+  });
+
+  updateCartBadge();
+</script>
 <script src="assets/js/main.js"></script>
 </body>
 </html>
