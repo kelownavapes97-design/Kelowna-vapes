@@ -7,13 +7,14 @@
 <meta name="description" content="Serving Kelowna and West Kelowna with top brands including STLTH, Flavour Beast, Lost Mary, and G-Core.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
 <style>
-  /* Typography Hierarchy Fixes */
+  /* Global Typography Fixes */
   body {
     font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
     letter-spacing: -0.01em;
+    -webkit-font-smoothing: antialiased;
   }
   
   h1, h2, h3, .wordmark {
@@ -21,13 +22,13 @@
     letter-spacing: -0.02em;
   }
 
-  /* Hero & Visual Glow FX */
+  /* Hero & Background FX */
   .hero-wrapper {
     position: relative;
-    padding: 80px 0 70px;
+    padding: 60px 0 50px;
     background: 
-      radial-gradient(550px circle at 80% 25%, rgba(255, 106, 43, 0.14), transparent 75%),
-      radial-gradient(450px circle at 15% 75%, rgba(59, 130, 246, 0.10), transparent 70%),
+      radial-gradient(450px circle at 80% 20%, rgba(255, 106, 43, 0.15), transparent 75%),
+      radial-gradient(350px circle at 15% 85%, rgba(59, 130, 246, 0.10), transparent 70%),
       #080a0f;
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   }
@@ -35,7 +36,7 @@
   .hero-grid {
     display: grid;
     grid-template-columns: 1.2fr 0.8fr;
-    gap: 48px;
+    gap: 36px;
     align-items: center;
   }
 
@@ -45,14 +46,14 @@
     gap: 8px;
     font-size: 11px;
     font-weight: 700;
-    letter-spacing: 1.2px;
+    letter-spacing: 1px;
     text-transform: uppercase;
     color: var(--primary);
     background: rgba(255, 106, 43, 0.1);
     border: 1px solid rgba(255, 106, 43, 0.25);
     padding: 6px 14px;
     border-radius: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 16px;
   }
 
   .pulse-dot {
@@ -64,33 +65,33 @@
   }
 
   .hero-title {
-    font-size: 52px;
+    font-size: clamp(32px, 5vw, 52px);
     line-height: 1.1;
     font-weight: 800;
-    margin-bottom: 20px;
+    margin-bottom: 16px;
     text-transform: uppercase;
   }
 
   .hero-subtitle {
-    font-size: 17px;
+    font-size: clamp(15px, 2vw, 17px);
     color: var(--muted);
     line-height: 1.6;
-    margin-bottom: 32px;
+    margin-bottom: 28px;
     max-width: 580px;
   }
 
   .hero-cta-group {
     display: flex;
-    gap: 14px;
+    gap: 12px;
     flex-wrap: wrap;
   }
 
-  /* Hero Visual Box */
+  /* Hero Visual Card */
   .hero-visual-card {
     background: rgba(15, 18, 25, 0.75);
     border: 1px solid rgba(255, 255, 255, 0.12);
     border-radius: 14px;
-    padding: 28px;
+    padding: 24px;
     backdrop-filter: blur(12px);
     position: relative;
   }
@@ -104,7 +105,7 @@
   }
 
   .visual-card-title {
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 700;
     letter-spacing: 1px;
     text-transform: uppercase;
@@ -113,34 +114,37 @@
   }
 
   .visual-card-heading {
-    font-size: 24px;
-    margin-bottom: 10px;
+    font-size: clamp(20px, 3vw, 24px);
+    margin-bottom: 8px;
   }
 
-  /* Stats / Value Bar */
+  /* Value / Stats Bar */
   .value-bar {
     background: rgba(15, 18, 25, 0.95);
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    padding: 20px 0;
+    padding: 18px 0;
   }
+
   .value-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
     text-align: center;
   }
+
   .value-item h4 {
-    font-size: 22px;
+    font-size: clamp(18px, 2.5vw, 22px);
     font-weight: 800;
     margin-bottom: 2px;
     color: #ffffff;
   }
+
   .value-item p {
-    font-size: 12px;
+    font-size: 11px;
     color: var(--muted);
     margin: 0;
     text-transform: uppercase;
-    letter-spacing: 0.8px;
+    letter-spacing: 0.5px;
     font-weight: 600;
   }
 
@@ -148,27 +152,27 @@
   .section-title-wrap {
     text-align: center;
     max-width: 600px;
-    margin: 0 auto 40px;
+    margin: 0 auto 32px;
   }
 
   .section-title {
-    font-size: 34px;
+    font-size: clamp(26px, 4vw, 34px);
     text-transform: uppercase;
     margin-bottom: 8px;
   }
 
   .product-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: 24px;
-    margin-bottom: 70px;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 60px;
   }
 
   .home-product-card {
     background: rgba(15, 18, 25, 0.65);
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 12px;
-    padding: 24px;
+    padding: 20px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -178,7 +182,7 @@
   .home-product-card:hover {
     border-color: rgba(255, 106, 43, 0.4);
     transform: translateY(-4px);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4);
   }
 
   .home-card-badge {
@@ -192,12 +196,12 @@
     border: 1px solid rgba(255, 106, 43, 0.25);
     padding: 4px 10px;
     border-radius: 12px;
-    margin-bottom: 14px;
+    margin-bottom: 12px;
   }
 
   .product-card-title {
-    font-size: 19px;
-    margin: 0 0 6px 0;
+    font-size: 18px;
+    margin: 0 0 4px 0;
   }
 
   .product-price-tag {
@@ -206,19 +210,20 @@
     font-size: 13px;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
   }
 
   .flavor-select {
     width: 100%;
+    height: 44px; /* Touch friendly height for mobile */
     background: rgba(8, 10, 15, 0.9);
     border: 1px solid rgba(255, 255, 255, 0.15);
     color: var(--text);
-    padding: 10px 12px;
-    border-radius: 6px;
+    padding: 0 12px;
+    border-radius: 8px;
     font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 13px;
-    margin-bottom: 16px;
+    font-size: 14px;
+    margin-bottom: 14px;
     outline: none;
     cursor: pointer;
   }
@@ -232,44 +237,44 @@
     background: linear-gradient(135deg, rgba(255, 106, 43, 0.12) 0%, rgba(15, 18, 25, 0.85) 100%);
     border: 1px solid rgba(255, 106, 43, 0.3);
     border-radius: 14px;
-    padding: 40px;
-    margin-bottom: 80px;
+    padding: 32px;
+    margin-bottom: 60px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 24px;
+    gap: 20px;
     flex-wrap: wrap;
   }
 
   .deal-banner h2 {
-    font-size: 28px;
+    font-size: clamp(22px, 3.5vw, 28px);
     margin: 8px 0;
   }
 
-  /* Location Cards */
+  /* Location Grid */
   .location-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 24px;
-    margin-bottom: 80px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin-bottom: 60px;
   }
 
   .store-card {
     background: rgba(15, 18, 25, 0.65);
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 12px;
-    padding: 28px;
+    padding: 24px;
   }
 
   .store-card-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 14px;
+    margin-bottom: 12px;
   }
 
   .store-title {
-    font-size: 20px;
+    font-size: 19px;
     margin: 0;
   }
 
@@ -282,34 +287,28 @@
     padding: 3px 8px;
     border-radius: 12px;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
   }
 
-  /* Header Actions */
+  /* Header & Cart Actions */
   .header-actions {
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: 12px;
   }
 
   .cart-link {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
+    gap: 6px;
     font-weight: 600;
-    font-size: 14px;
+    font-size: 13px;
     color: var(--text);
     text-decoration: none;
-    padding: 8px 14px;
+    padding: 8px 12px;
     border-radius: 8px;
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.12);
-    transition: all 0.2s ease;
-  }
-
-  .cart-link:hover {
-    border-color: var(--primary);
-    background: rgba(255, 106, 43, 0.1);
+    white-space: nowrap;
   }
 
   .cart-badge {
@@ -317,13 +316,39 @@
     color: #fff;
     font-size: 11px;
     font-weight: 800;
-    padding: 2px 7px;
+    padding: 2px 6px;
     border-radius: 10px;
   }
 
-  @media (max-width: 992px) {
-    .hero-grid { grid-template-columns: 1fr; }
-    .hero-title { font-size: 40px; }
+  /* Mobile Specific Styles */
+  @media (max-width: 768px) {
+    .hero-wrapper {
+      padding: 40px 0 36px;
+    }
+    .hero-grid {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+    .hero-cta-group {
+      flex-direction: column;
+    }
+    .hero-cta-group .btn {
+      width: 100%;
+      text-align: center;
+    }
+    .value-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+    .deal-banner {
+      padding: 24px;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .deal-banner .btn {
+      width: 100%;
+      text-align: center;
+    }
   }
 </style>
 </head>
@@ -378,7 +403,7 @@
             Stocking authentic disposables, pods, hardware, and e-liquids from STLTH, Flavour Beast, Lost Mary, Elfbar, and G-Core across Kelowna &amp; West Kelowna.
           </p>
           <div class="hero-cta-group">
-            <a href="shop.html" class="btn btn-primary" style="padding: 12px 28px; font-size: 15px;">Explore Full Catalog</a>
+            <a href="shop.html" class="btn btn-primary" style="padding: 12px 24px; font-size: 15px;">Explore Full Catalog</a>
             <a href="about.html" class="btn btn-outline" style="padding: 12px 24px; font-size: 15px;">Store Locations</a>
           </div>
         </div>
@@ -387,7 +412,7 @@
         <div class="hero-visual-card">
           <div class="visual-card-title">Featured Promotion</div>
           <h3 class="visual-card-heading">G-Core E-Liquid Special</h3>
-          <p style="color: var(--muted); font-size: 14px; line-height: 1.5; margin-bottom: 20px;">
+          <p style="color: var(--muted); font-size: 14px; line-height: 1.5; margin-bottom: 18px;">
             Buy 1 30ml Bottle, Get 2nd at <strong style="color: #fff;">50% OFF</strong>. Premium nicotine salts in stock daily.
           </p>
           <a href="shop.html?category=E-Liquids" class="btn btn-primary" style="width: 100%; text-align: center;">Shop G-Core Liquids</a>
@@ -406,7 +431,7 @@
         </div>
         <div class="value-item">
           <h4>100% Authentic</h4>
-          <p>Direct Manufacturer Supply</p>
+          <p>Direct Supply</p>
         </div>
         <div class="value-item">
           <h4>Open Daily</h4>
@@ -421,10 +446,10 @@
   </section>
 
   <!-- Trending Products Section -->
-  <section class="container" style="padding-top: 70px;">
+  <section class="container" style="padding-top: 50px;">
     <div class="section-title-wrap">
       <h2 class="section-title">Trending Disposables</h2>
-      <p style="color: var(--muted); margin: 0; font-size: 15px;">Select your flavor and add items directly to your cart:</p>
+      <p style="color: var(--muted); margin: 0; font-size: 14px;">Select your flavor and add items directly to your cart:</p>
     </div>
 
     <div class="product-grid">
@@ -435,7 +460,7 @@
           <span class="home-card-badge">HOT ITEM</span>
           <h3 class="product-card-title">STLTH X GEEKBAR</h3>
           <div class="product-price-tag">Price on Request</div>
-          <p style="color: var(--muted); font-size: 13px; line-height: 1.5; margin-bottom: 16px;">High-capacity collaboration featuring STLTH flavor profiles with Geek Bar hardware.</p>
+          <p style="color: var(--muted); font-size: 13px; line-height: 1.5; margin-bottom: 14px;">High-capacity collaboration featuring STLTH flavor profiles with Geek Bar hardware.</p>
           <select class="flavor-select" aria-label="Select Flavor">
             <option value="">Choose Flavor...</option>
             <option>Blueberry Watermelon Ice</option>
@@ -445,7 +470,7 @@
             <option>Strawberry Banana Ice</option>
           </select>
         </div>
-        <button class="btn btn-primary add-to-cart-btn" style="width: 100%;">Add to Cart</button>
+        <button class="btn btn-primary add-to-cart-btn" style="width: 100%; height: 44px;">Add to Cart</button>
       </div>
 
       <!-- ELFBAR 80K -->
@@ -454,7 +479,7 @@
           <span class="home-card-badge">LONG LASTING</span>
           <h3 class="product-card-title">ELFBAR 80K</h3>
           <div class="product-price-tag">Price on Request</div>
-          <p style="color: var(--muted); font-size: 13px; line-height: 1.5; margin-bottom: 16px;">Extreme longevity with dual power output modes and digital display panel.</p>
+          <p style="color: var(--muted); font-size: 13px; line-height: 1.5; margin-bottom: 14px;">Extreme longevity with dual power output modes and digital display panel.</p>
           <select class="flavor-select" aria-label="Select Flavor">
             <option value="">Choose Flavor...</option>
             <option>Blue Razz Ice</option>
@@ -463,7 +488,7 @@
             <option>Watermelon Ice</option>
           </select>
         </div>
-        <button class="btn btn-primary add-to-cart-btn" style="width: 100%;">Add to Cart</button>
+        <button class="btn btn-primary add-to-cart-btn" style="width: 100%; height: 44px;">Add to Cart</button>
       </div>
 
       <!-- ALLO 65K -->
@@ -472,7 +497,7 @@
           <span class="home-card-badge">DUAL TANK</span>
           <h3 class="product-card-title">ALLO 65K</h3>
           <div class="product-price-tag">Price on Request</div>
-          <p style="color: var(--muted); font-size: 13px; line-height: 1.5; margin-bottom: 16px;">Ultra-high-capacity system with dual-reservoir technology.</p>
+          <p style="color: var(--muted); font-size: 13px; line-height: 1.5; margin-bottom: 14px;">Ultra-high-capacity system with dual-reservoir technology.</p>
           <select class="flavor-select" aria-label="Select Flavor">
             <option value="">Choose Flavor...</option>
             <option>Blue Razz</option>
@@ -481,7 +506,7 @@
             <option>Orange Fanta</option>
           </select>
         </div>
-        <button class="btn btn-primary add-to-cart-btn" style="width: 100%;">Add to Cart</button>
+        <button class="btn btn-primary add-to-cart-btn" style="width: 100%; height: 44px;">Add to Cart</button>
       </div>
 
       <!-- G-CORE E-LIQUID -->
@@ -490,7 +515,7 @@
           <span class="home-card-badge" style="color: #3b82f6; background: rgba(59, 130, 246, 0.12); border-color: rgba(59, 130, 246, 0.25);">BUY 1 GET 2ND 50% OFF</span>
           <h3 class="product-card-title">G-CORE Salt E-Liquid</h3>
           <div class="product-price-tag">$25.99 / 30ml</div>
-          <p style="color: var(--muted); font-size: 13px; line-height: 1.5; margin-bottom: 16px;">Premium salt nicotine formulas designed for crisp vapor performance.</p>
+          <p style="color: var(--muted); font-size: 13px; line-height: 1.5; margin-bottom: 14px;">Premium salt nicotine formulas designed for crisp vapor performance.</p>
           <select class="flavor-select" aria-label="Select Flavor">
             <option value="">Choose Flavor...</option>
             <option>Banana Ice</option>
@@ -499,7 +524,7 @@
             <option>Tobacco</option>
           </select>
         </div>
-        <button class="btn btn-primary add-to-cart-btn" style="width: 100%;">Add to Cart</button>
+        <button class="btn btn-primary add-to-cart-btn" style="width: 100%; height: 44px;">Add to Cart</button>
       </div>
 
     </div>
@@ -519,7 +544,7 @@
     <!-- Store Locations Section -->
     <div class="section-title-wrap">
       <h2 class="section-title">Visit Our Okanagan Stores</h2>
-      <p style="color: var(--muted); margin: 0; font-size: 15px;">Stop by today for complete product availability and expert assistance.</p>
+      <p style="color: var(--muted); margin: 0; font-size: 14px;">Stop by today for complete product availability and expert assistance.</p>
     </div>
 
     <div class="location-grid">
@@ -528,11 +553,11 @@
           <h3 class="store-title">📍 Kelowna Store</h3>
           <span class="open-badge">OPEN DAILY</span>
         </div>
-        <p style="color: var(--muted); font-size: 14px; line-height: 1.6; margin-bottom: 20px;">
+        <p style="color: var(--muted); font-size: 14px; line-height: 1.6; margin-bottom: 18px;">
           <strong style="color:#fff;">Address:</strong> 2090 Harvey Ave, Kelowna, BC<br>
           <strong style="color:#fff;">Hours:</strong> 7:00 AM – 11:00 PM
         </p>
-        <a href="about.html" class="btn btn-outline" style="width: 100%; text-align: center;">Get Directions</a>
+        <a href="about.html" class="btn btn-outline" style="width: 100%; text-align: center; height: 44px; display: inline-flex; align-items: center; justify-content: center;">Get Directions</a>
       </div>
 
       <div class="store-card">
@@ -540,11 +565,11 @@
           <h3 class="store-title">📍 West Kelowna</h3>
           <span class="open-badge">OPEN DAILY</span>
         </div>
-        <p style="color: var(--muted); font-size: 14px; line-height: 1.6; margin-bottom: 20px;">
+        <p style="color: var(--muted); font-size: 14px; line-height: 1.6; margin-bottom: 18px;">
           <strong style="color:#fff;">Address:</strong> 1785 Ross Rd, West Kelowna, BC<br>
           <strong style="color:#fff;">Hours:</strong> 8:00 AM – 10:00 PM
         </p>
-        <a href="about.html" class="btn btn-outline" style="width: 100%; text-align: center;">Get Directions</a>
+        <a href="about.html" class="btn btn-outline" style="width: 100%; text-align: center; height: 44px; display: inline-flex; align-items: center; justify-content: center;">Get Directions</a>
       </div>
     </div>
   </section>
