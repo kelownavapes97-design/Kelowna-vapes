@@ -27,7 +27,7 @@
   .brand-wordmark {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
     font-family: 'Oswald', sans-serif;
     font-size: 28px;
     font-weight: 700;
@@ -39,8 +39,8 @@
   }
 
   .brand-flame {
-    width: 22px;
-    height: 34px;
+    width: 24px;
+    height: 36px;
     display: inline-block;
     flex-shrink: 0;
   }
@@ -392,22 +392,22 @@
   <div class="container">
     <a href="index.html" class="brand-wordmark" aria-label="Kelowna Vapes Homepage">
       <span>KELOWNA</span>
-      <!-- Corrected Official Flame SVG -->
-      <svg class="brand-flame" viewBox="0 0 100 150" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <!-- Header Flame Logo with Unique Gradient IDs -->
+      <svg class="brand-flame" viewBox="0 0 100 160" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         <defs>
-          <linearGradient id="orangeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <linearGradient id="hdrOrangeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
             <stop offset="0%" stop-color="#FF7A00" />
-            <stop offset="100%" stop-color="#FF3A00" />
+            <stop offset="100%" stop-color="#FF3E00" />
           </linearGradient>
-          <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <linearGradient id="hdrBlueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
             <stop offset="0%" stop-color="#00A3FF" />
-            <stop offset="100%" stop-color="#0047FF" />
+            <stop offset="100%" stop-color="#0055FF" />
           </linearGradient>
         </defs>
-        <!-- Top Flame Component (Orange) -->
-        <path d="M 60 5 C 75 30 85 50 65 72 C 50 50 52 28 60 5 Z" fill="url(#orangeGrad)" />
-        <!-- Bottom Flame Component (Blue) -->
-        <path d="M 40 145 C 25 120 15 100 35 78 C 50 100 48 122 40 145 Z" fill="url(#blueGrad)" />
+        <!-- Top Orange Flame -->
+        <path d="M 50,5 Q 85,45 65,85 Q 45,100 40,75 Q 35,45 50,5 Z" fill="url(#hdrOrangeGrad)" />
+        <!-- Bottom Blue Flame -->
+        <path d="M 50,155 Q 15,115 35,75 Q 55,60 60,85 Q 65,115 50,155 Z" fill="url(#hdrBlueGrad)" />
       </svg>
       <span>VAPES</span>
     </a>
@@ -630,9 +630,20 @@
     <div>
       <div class="brand-wordmark" style="font-size:20px;">
         <span>KELOWNA</span>
-        <svg class="brand-flame" style="width:14px; height:22px;" viewBox="0 0 100 150" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <path d="M 60 5 C 75 30 85 50 65 72 C 50 50 52 28 60 5 Z" fill="url(#orangeGrad)" />
-          <path d="M 40 145 C 25 120 15 100 35 78 C 50 100 48 122 40 145 Z" fill="url(#blueGrad)" />
+        <!-- Footer Flame Logo with Unique Gradient IDs -->
+        <svg class="brand-flame" style="width:16px; height:24px;" viewBox="0 0 100 160" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs>
+            <linearGradient id="ftrOrangeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#FF7A00" />
+              <stop offset="100%" stop-color="#FF3E00" />
+            </linearGradient>
+            <linearGradient id="ftrBlueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#00A3FF" />
+              <stop offset="100%" stop-color="#0055FF" />
+            </linearGradient>
+          </defs>
+          <path d="M 50,5 Q 85,45 65,85 Q 45,100 40,75 Q 35,45 50,5 Z" fill="url(#ftrOrangeGrad)" />
+          <path d="M 50,155 Q 15,115 35,75 Q 55,60 60,85 Q 65,115 50,155 Z" fill="url(#ftrBlueGrad)" />
         </svg>
         <span>VAPES</span>
       </div>
