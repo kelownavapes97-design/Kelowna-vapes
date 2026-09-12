@@ -18,7 +18,7 @@
     margin-bottom: 8px;
     text-transform: uppercase;
   }
-  
+
   /* Filter Bar Styling */
   .filter-bar {
     display: flex;
@@ -52,7 +52,7 @@
     grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
     gap: 28px;
   }
-  
+
   .product-card {
     display: flex;
     flex-direction: column;
@@ -80,6 +80,9 @@
   }
 
   .product-price {
+    font-size: 22px;
+    font-weight: 800;
+    color: #ffffff;
     font-size: 15px;
     font-weight: 700;
     letter-spacing: 0.5px;
@@ -88,78 +91,17 @@
     margin-bottom: 12px;
   }
 
-  .product-desc {
-    color: var(--muted);
-    font-size: 14px;
-    margin-bottom: 20px;
-    flex-grow: 1;
-  }
-
-  .flavor-select {
-    width: 100%;
-    background: rgba(8, 10, 15, 0.8);
-    border: 1px solid var(--surface-border);
-    color: var(--text);
-    padding: 10px 14px;
-    border-radius: var(--radius-sm);
-    font-family: var(--font-body);
-    font-size: 14px;
-    margin-bottom: 16px;
-    outline: none;
-    cursor: pointer;
-  }
-
-  .flavor-select:focus {
-    border-color: var(--primary);
-  }
-
-  @media (max-width: 768px) {
-    .shop-header h1 { font-size: 32px; }
-    .filter-bar { gap: 8px; }
-    .filter-btn { padding: 8px 14px; font-size: 13px; }
-  }
-</style>
-</head>
-<body>
-
-<!-- Header -->
-<header class="site-header">
-  <div class="container">
-    <a href="index.html" class="wordmark" aria-label="Kelowna Vapes Homepage">
-      Kelowna Vapes
-      <svg class="flame" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <defs><linearGradient id="fg2" x1="0" y1="24" x2="24" y2="0"><stop offset="0" stop-color="#ff6a2b"/><stop offset="1" stop-color="#3b82f6"/></linearGradient></defs>
-        <path d="M12 2C9 6 6 8 6 13a6 6 0 0 0 12 0c0-2-1-3-2-4 .3 2-1 3-2 2 1-3-1-5-2-9z" fill="url(#fg2)"/>
-      </svg>
-    </a>
-    <nav class="main-nav" id="main-nav">
-      <a href="index.html">Home</a>
-      <a href="shop.html" class="active">Shop</a>
-      <a href="about.html">About &amp; Hours</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle Navigation Menu">
-      <span>Menu</span>
-      <div class="nav-toggle-icon" aria-hidden="true">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-    </button>
-  </div>
-</header>
-
-<!-- Shop Content -->
-<main class="container">
-  <section class="shop-header">
-    <h1>Product Catalog</h1>
-    <p style="color: var(--muted); margin: 0;">Explore items available at both Harvey Ave &amp; Ross Rd store locations.</p>
-  </section>
-
-  <!-- Category Filter Buttons -->
+@@ -158,13 +160,13 @@
   <div class="filter-bar">
     <button class="filter-btn active" data-category="all">All Items</button>
     <button class="filter-btn" data-category="Disposables">Disposables</button>
+    <button class="filter-btn" data-category="flavour-beast">E-Liquids</button>
+    <button class="filter-btn" data-category="lost-mary">Devices</button>
+    <button class="filter-btn" data-category="g-core">Smokes</button>
+    <button class="filter-btn" data-category="g-core">Bongs</button>
+    <button class="filter-btn" data-category="g-core">Canvas</button>
+    <button class="filter-btn" data-category="g-core">Drinks</button>
+    <button class="filter-btn" data-category="g-core">Torches</button>
     <button class="filter-btn" data-category="E-Liquids">E-Liquids</button>
     <button class="filter-btn" data-category="Devices">Devices</button>
     <button class="filter-btn" data-category="Smokes">Smokes</button>
@@ -170,26 +112,16 @@
   </div>
 
   <!-- Product Catalog Grid -->
-  <div class="product-grid">
-
-    <!-- STLTH Product -->
-    <div class="gradient-border-card product-card" data-category="Disposables">
+@@ -175,7 +177,7 @@
       <div>
         <span class="product-badge">DISPOSABLE</span>
         <h2 class="product-title">STLTH X GEEKBAR</h2>
+        <div class="product-price">$49.99</div>
         <div class="product-price">Price on Request</div>
         <p class="product-desc">The STLTH x Geek Bar is a high-capacity disposable vape collaboration that combines STLTH's signature Canadian flavor profiles with Geek Bar's advanced hardware technology.</p>
         <select class="flavor-select" aria-label="Select Flavor">
           <option value="">Select Flavor...</option>
-          <option>Blueberry Watermelon Ice</option>
-          <option>Coconut Ice</option>
-          <option>Lychee Melon Ice</option>
-          <option>Juicy Peach Ice</option>
-          <option>Strawberry Banana Ice</option>
-          <option>Strawberry Kiwi Ice</option>
-          <option>Red Punch Ice</option>
-        </select>
-      </div>
+@@ -191,332 +193,49 @@
       <button class="btn btn-outline" style="width: 100%;">In-Stock at Stores</button>
     </div>
 
@@ -198,20 +130,235 @@
       <div>
         <span class="product-badge">DISPOSABLE</span>
         <h2 class="product-title">ELFBAR 80K</h2>
+        <div class="product-price">$49.99</div>
         <div class="product-price">Price on Request</div>
         <p class="product-desc">The Elfbar 80K is designed for extreme longevity, featuring high e-liquid volume, multiple power output modes, and advanced smart screen controls.</p>
         <select class="flavor-select" aria-label="Select Flavor">
           <option value="">Select Flavor...</option>
           <option>Blue Razz Ice</option>
           <option>Blueberry Sour Raspberry</option>
+          <option>Banana ice</option>
+          <option>Double Mango</option>
+          <option>Grape Ice</option>
+          <option>Kiwi Guava Ice</option>
+          <option>Miami Mint</option>
+          <option>Pineapple mango </option>
+          <option>Peach Mango Watermelon</option>
+          <option>Peach Berry</option>
+          <option>Strawberry Banana </option>
+          <option>Strawberry Kiwi Ice</option>
+          <option>Watermelon Ice</option>
+        </select>
+      </div>
+      <button class="btn btn-outline" style="width: 100%;">In-Stock at Stores</button>
+    </div>
+     <div class="gradient-border-card product-card" data-category="Disposables">
+      <div>
+        <span class="product-badge">DISPOSABLE</span>
+        <h2 class="product-title">ALLO 65K</h2>
+        <div class="product-price">$49.99</div>
+        <p class="product-desc">The Allo Ultra 65K is an ultra-high-capacity disposable vape system designed to deliver extended longevity through a dual-reservoir design and modular setup.</p>
+        <select class="flavor-select" aria-label="Select Flavor">
+          <option>Blue Razz</option>
+          <option>Grape Ice</option>
+          <option>Matcha</option>
+          <option>Mighty Mint</option>
+          <option>Orange Fanta</option>
+           <option>Strawberry Gummy </option>
+          <option>White Peach Razz</option>
+        </select>
+      </div>
+      <button class="btn btn-outline" style="width: 100%;">In-Stock at Stores</button>
+    </div>
+     <div class="gradient-border-card product-card" data-category="Disposables">
+      <div>
+        <span class="product-badge">DISPOSABLE</span>
+        <h2 class="product-title">AERIX</h2>
+        <div class="product-price">$44.99</div>
+        <p class="product-desc">The Aerix 90K is a long-lasting disposable vape built with high-capacity dual-mesh coil technology and custom performance modes.</p>
+        <select class="flavor-select" aria-label="Select Flavor">
+          <option>Blue Razz Ice</option>
+          <option>Dragonfruit Strawberry Ice</option>
+          <option>Extreme Mint</option>
+          <option>Frozen Watermelon</option>
+          <option>Mexican Mango</option>
+          <option>Peach Berries</option>
+          <option>Sour Apple</option>
+          <option>White G</option>
+        </select>
+      </div>
+      <button class="btn btn-outline" style="width: 100%;">In-Stock at Stores</button>
+    </div>
+
+     <div class="gradient-border-card product-card" data-category="Disposables">
+      <div>
+        <span class="product-badge">DISPOSABLE</span>
+        <h2 class="product-title">Rifbar</h2>
+        <div class="product-price">$39.99</div>
+        <p class="product-desc">The Rifbar MixPro 40K is a high-capacity disposable vape known for its customizable control settings, allowing users to fine-tune cooling, sweetness, and wattage outputs directly on the device.</p>
+        <select class="flavor-select" aria-label="Select Flavor">
+          <option>Blue Razz Ice</option>
+          <option>Double Mango</option>
+          <option>Grape Ice</option>
+          <option>Kiwi Guava Ice</option>
+          <option>Miami Mint</option>
+          <option>Pineapple mango </option>
+          <option>Peach Mango Watermelon</option>
+          <option>Peach Berry</option>
+          <option>Strawberry Banana </option>
+          <option>Strawberry Kiwi Ice</option>
+          <option>Watermelon Ice</option>
+        </select>
+      </div>
+      <button class="btn btn-outline" style="width: 100%;">In-Stock at Stores</button>
+    </div>
+
+
+     <div class="gradient-border-card product-card" data-category="Disposables">
+      <div>
+        <span class="product-badge">DISPOSABLE</span>
+        <h2 class="product-title">Lost vape</h2>
+        <div class="product-price">$45.99</div>
+        <p class="product-desc">The Lost Vape Orion Bar 50K (Infinite Galaxy Screen) and Galaxy Pro 50K series are ultra-high-capacity disposable vapes distinguished by 360-degree curved galaxy visual displays and independent adjustment controls for both cooling and hit strength.</p>
+        <select class="flavor-select" aria-label="Select Flavor">
+          <option>Blue Razz Ice</option>
+          <option>Blueberry Sour Raspberry</option>
+          <option>Banana ice</option>
+          <option>Double Mango</option>
+          <option>Grape Ice</option>
+          <option>Kiwi Guava Ice</option>
+          <option>Miami Mint</option>
+          <option>Pineapple mango </option>
+          <option>Peach Mango Watermelon</option>
+          <option>Peach Berry</option>
+          <option>Strawberry Banana </option>
+          <option>Strawberry Kiwi Ice</option>
+          <option>Watermelon Ice</option>
+        </select>
+      </div>
+      <button class="btn btn-outline" style="width: 100%;">In-Stock at Stores</button>
+    </div>
+
+     <div class="gradient-border-card product-card" data-category="Disposables">
+      <div>
+        <span class="product-badge">DISPOSABLE</span>
+        <h2 class="product-title">Fog Pro X</h2>
+        <div class="product-price">$35.99</div>
+        <p class="product-desc">The Fog Formulas Pro X (50K) is a ultra-high-capacity disposable vape designed around advanced dual-mesh coil engineering and long-lasting flavor output.</p>
+        <select class="flavor-select" aria-label="Select Flavor">
+          <option>Blue Razz Ice</option>
+          <option>Blueberry Sour Raspberry</option>
+          <option>Banana ice</option>
+          <option>Double Mango</option>
+          <option>Grape Ice</option>
+          <option>Kiwi Guava Ice</option>
+          <option>Miami Mint</option>
+          <option>Pineapple mango </option>
+          <option>Peach Mango Watermelon</option>
+          <option>Peach Berry</option>
+          <option>Strawberry Banana </option>
+          <option>Strawberry Kiwi Ice</option>
+          <option>Watermelon Ice</option>
+        </select>
+      </div>
+      <button class="btn btn-outline" style="width: 100%;">In-Stock at Stores</button>
+    </div>
+
+     <div class="gradient-border-card product-card" data-category="Disposables">
+      <div>
+        <span class="product-badge">DISPOSABLE</span>
+        <h2 class="product-title">6ixbar</h2>
+        <div class="product-price">$49.99</div>
+        <p class="product-desc">The 6ixBar FIXX system is a closed-pod vaping setup designed for compatibility with standard STLTH and FIXX device bases, offering rich flavor profiles in a compact form factor.</p>
+        <select class="flavor-select" aria-label="Select Flavor">
+          <option>Blue Razz Ice</option>
+          <option>Blueberry Sour Raspberry</option>
+          <option>Banana ice</option>
+          <option>Double Mango</option>
+          <option>Grape Ice</option>
+          <option>Kiwi Guava Ice</option>
+          <option>Miami Mint</option>
+          <option>Pineapple mango </option>
+          <option>Peach Mango Watermelon</option>
+          <option>Peach Berry</option>
+          <option>Strawberry Banana </option>
+          <option>Strawberry Kiwi Ice</option>
+          <option>Watermelon Ice</option>
+        </select>
+      </div>
+      <button class="btn btn-outline" style="width: 100%;">In-Stock at Stores</button>
+    </div>
+
+     <div class="gradient-border-card product-card" data-category="Disposables">
+      <div>
+        <span class="product-badge">DISPOSABLE</span>
+        <h2 class="product-title">TwistBar 3in1 </h2>
+        <div class="product-price">$39.99</div>
+        <p class="product-desc">The Twist Bar 3-in-1 60K upgrade expands on the 3-in-1 multi-flavor platform, doubling the overall puff output while retaining three independently selectable flavor tanks.</p>
+        <select class="flavor-select" aria-label="Select Flavor">
+          <option>Blue Razz Ice</option>
+          <option>Blueberry Sour Raspberry</option>
+          <option>Banana ice</option>
+          <option>Double Mango</option>
+          <option>Grape Ice</option>
+          <option>Kiwi Guava Ice</option>
+          <option>Miami Mint</option>
+          <option>Pineapple mango </option>
+          <option>Peach Mango Watermelon</option>
+          <option>Peach Berry</option>
+          <option>Strawberry Banana </option>
+          <option>Strawberry Kiwi Ice</option>
+          <option>Watermelon Ice</option>
+        </select>
+      </div>
+      <button class="btn btn-outline" style="width: 100%;">In-Stock at Stores</button>
+    </div>
+
+     <div class="gradient-border-card product-card" data-category="Disposables">
+      <div>
+        <span class="product-badge">DISPOSABLE</span>
+        <h2 class="product-title">ALLO 25k</h2>
+        <div class="product-price">$29.99</div>
+        <p class="product-desc">The Allo Ultra 25K is a high-capacity disposable vape featuring dual mesh coil modes, adjustable airflow control, and dynamic digital monitoring for battery and e-liquid levels.</p>
+        <select class="flavor-select" aria-label="Select Flavor">
+          <option>Blue Razz Ice</option>
+          <option>Blueberry Sour Raspberry</option>
+          <option>Banana ice</option>
+          <option>Double Mango</option>
+          <option>Grape Ice</option>
+          <option>Kiwi Guava Ice</option>
+          <option>Miami Mint</option>
+          <option>Pineapple mango </option>
+          <option>Peach Mango Watermelon</option>
+          <option>Peach Berry</option>
+          <option>Strawberry Banana </option>
+          <option>Strawberry Kiwi Ice</option>
+          <option>Watermelon Ice</option>
+        </select>
+      </div>
+      <button class="btn btn-outline" style="width: 100%;">In-Stock at Stores</button>
+    </div>
+
+     <div class="gradient-border-card product-card" data-category="Disposables">
+      <div>
+        <span class="product-badge">DISPOSABLE</span>
+        <h2 class="product-title">Level X G2</h2>
+        <div class="product-price">$29.99</div>
+        <p class="product-desc">The Elfbar 80K is designed for extreme longevity, featuring high e-liquid volume, multiple power output modes, and advanced smart screen controls.</p>
+        <select class="flavor-select" aria-label="Select Flavor">
+          <option>Blue Razz Ice</option>
+          <option>Blueberry Sour Raspberry</option>
+          <option>Banana ice</option>
           <option>Banana Ice</option>
           <option>Double Mango</option>
           <option>Grape Ice</option>
           <option>Kiwi Guava Ice</option>
           <option>Miami Mint</option>
+          <option>Pineapple mango </option>
           <option>Pineapple Mango</option>
           <option>Peach Mango Watermelon</option>
           <option>Peach Berry</option>
+          <option>Strawberry Banana </option>
           <option>Strawberry Banana</option>
           <option>Strawberry Kiwi Ice</option>
           <option>Watermelon Ice</option>
@@ -220,10 +367,88 @@
       <button class="btn btn-outline" style="width: 100%;">In-Stock at Stores</button>
     </div>
 
+       <div class="gradient-border-card product-card" data-category="Disposables">
+      <div>
+        <span class="product-badge">DISPOSABLE</span>
+        <h2 class="product-title">ELFBAR 80K</h2>
+        <div class="product-price">$49.99</div>
+        <p class="product-desc">The Elfbar 80K is designed for extreme longevity, featuring high e-liquid volume, multiple power output modes, and advanced smart screen controls.</p>
+        <select class="flavor-select" aria-label="Select Flavor">
+          <option>Blue Razz Ice</option>
+          <option>Blueberry Sour Raspberry</option>
+          <option>Banana ice</option>
+          <option>Double Mango</option>
+          <option>Grape Ice</option>
+          <option>Kiwi Guava Ice</option>
+          <option>Miami Mint</option>
+          <option>Pineapple mango </option>
+          <option>Peach Mango Watermelon</option>
+          <option>Peach Berry</option>
+          <option>Strawberry Banana </option>
+          <option>Strawberry Kiwi Ice</option>
+          <option>Watermelon Ice</option>
+        </select>
+      </div>
+         <button class="btn btn-outline" style="width: 100%;">In-Stock at Stores</button>
+    </div>
+
+          <div class="gradient-border-card product-card" data-category="Disposables">
+      <div>
+        <span class="product-badge">DISPOSABLE</span>
+        <h2 class="product-title">ELFBAR 80K</h2>
+        <div class="product-price">$49.99</div>
+        <p class="product-desc">The Elfbar 80K is designed for extreme longevity, featuring high e-liquid volume, multiple power output modes, and advanced smart screen controls.</p>
+        <select class="flavor-select" aria-label="Select Flavor">
+          <option>Blue Razz Ice</option>
+          <option>Blueberry Sour Raspberry</option>
+          <option>Banana ice</option>
+          <option>Double Mango</option>
+          <option>Grape Ice</option>
+          <option>Kiwi Guava Ice</option>
+          <option>Miami Mint</option>
+          <option>Pineapple mango </option>
+          <option>Peach Mango Watermelon</option>
+          <option>Peach Berry</option>
+          <option>Strawberry Banana </option>
+          <option>Strawberry Kiwi Ice</option>
+          <option>Watermelon Ice</option>
+        </select>
+      </div>
+            <button class="btn btn-outline" style="width: 100%;">In-Stock at Stores</button>
+    </div>
+
+             <div class="gradient-border-card product-card" data-category="Disposables">
+      <div>
+        <span class="product-badge">DISPOSABLE</span>
+        <h2 class="product-title">ELFBAR 80K</h2>
+        <div class="product-price">$49.99</div>
+        <p class="product-desc">The Elfbar 80K is designed for extreme longevity, featuring high e-liquid volume, multiple power output modes, and advanced smart screen controls.</p>
+        <select class="flavor-select" aria-label="Select Flavor">
+          <option>Blue Razz Ice</option>
+          <option>Blueberry Sour Raspberry</option>
+          <option>Banana ice</option>
+          <option>Double Mango</option>
+          <option>Grape Ice</option>
+          <option>Kiwi Guava Ice</option>
+          <option>Miami Mint</option>
+          <option>Pineapple mango </option>
+          <option>Peach Mango Watermelon</option>
+          <option>Peach Berry</option>
+          <option>Strawberry Banana </option>
+          <option>Strawberry Kiwi Ice</option>
+          <option>Watermelon Ice</option>
+        </select>
+      </div>
+               <button class="btn btn-outline" style="width: 100%;">In-Stock at Stores</button>
+    </div>
+
+    <!-- Lost Mary Product -->
     <!-- ELFBAR 20K Card -->
     <div class="gradient-border-card product-card" data-category="Disposables">
       <div>
         <span class="product-badge">DISPOSABLE</span>
+        <h2 class="product-title">ELFBAR 20k</h2>
+        <div class="product-price">$39.99</div>
         <h2 class="product-title">ELFBAR 20K</h2>
         <div class="product-price">Price on Request</div>
         <p class="product-desc">The Elf Bar GH20000 (20K) is a long-lasting disposable vape built with a triple mesh coil structure and customizable output modes for high flavor performance.</p>
@@ -235,19 +460,16 @@
           <option>Peach Mango Watermelon</option>
           <option>Pineapple Passionfruit Orange</option>
           <option>Pomegranate Grape</option>
+          <option>SOur Blueberry Lemon</option>
           <option>Sour Blueberry Lemon</option>
           <option>Strawberry Banana</option>
           <option>Watermelon Ice</option>
         </select>
-      </div>
-      <button class="btn btn-outline" style="width: 100%;">In-Stock at Stores</button>
-    </div>
-
-    <!-- G-Core Product -->
-    <div class="gradient-border-card product-card" data-category="E-Liquids">
+@@ -529,13 +248,14 @@
       <div>
         <span class="product-badge">E-Liquids</span>
         <h2 class="product-title">G-CORE</h2>
+        <div class="product-price">$25.99</div>
         <div class="product-price">Price on Request</div>
         <p class="product-desc">Premium 30ml salt nicotine bottles. Special: Buy 1 Get 2nd 50% Off.</p>
         <select class="flavor-select" aria-label="Select Flavor">
@@ -255,35 +477,17 @@
           <option>Banana Ice</option>
           <option>Blue Razz</option>
           <option>Double Mint</option>
+          <option>Tabbaco</option>
           <option>Tobacco</option>
           <option>Frozen Strawberry</option>
           <option>Super Sour</option>
           <option>Peach Ice</option>
-        </select>
-      </div>
-      <button class="btn btn-outline" style="width: 100%;">In-Stock at Stores</button>
-    </div>
-
-  </div>
-</main>
-
-<!-- Footer -->
-<footer class="site-footer">
-  <div class="container">
-    <div>
+@@ -554,7 +274,7 @@
       <div class="wordmark" style="font-size:18px;">Kelowna Vapes</div>
       <p class="footer-note">For adult consumers 19+ only. Products contain nicotine, an addictive substance.</p>
     </div>
+   
     
     <div>
       <p style="margin:0; color:var(--muted); font-size:14px; line-height: 1.6;">
         <strong>Kelowna:</strong> 2090 Harvey Ave (7am–11pm)<br>
-        <strong>West Kelowna:</strong> 1785 Ross Rd (8am–10pm)
-      </p>
-    </div>
-  </div>
-</footer>
-
-<script src="assets/js/main.js"></script>
-</body>
-</html>
