@@ -27,7 +27,7 @@
   .brand-wordmark {
     display: inline-flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
     font-family: 'Oswald', sans-serif;
     font-size: 28px;
     font-weight: 700;
@@ -392,22 +392,22 @@
   <div class="container">
     <a href="index.html" class="brand-wordmark" aria-label="Kelowna Vapes Homepage">
       <span>KELOWNA</span>
-      <!-- Official Store Dual-Flame SVG Logo -->
-      <svg class="brand-flame" viewBox="0 0 24 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <!-- Corrected Official Flame SVG -->
+      <svg class="brand-flame" viewBox="0 0 100 150" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         <defs>
-          <linearGradient id="topFlame" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#ff7a00" />
-            <stop offset="100%" stop-color="#ff3e00" />
+          <linearGradient id="orangeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#FF7A00" />
+            <stop offset="100%" stop-color="#FF3A00" />
           </linearGradient>
-          <linearGradient id="bottomFlame" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#00a3ff" />
-            <stop offset="100%" stop-color="#0055ff" />
+          <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#00A3FF" />
+            <stop offset="100%" stop-color="#0047FF" />
           </linearGradient>
         </defs>
-        <!-- Top Orange Curve -->
-        <path d="M 14 2 C 18 8 20 12 14 17 C 10 12 11 6 14 2 Z" fill="url(#topFlame)" />
-        <!-- Bottom Blue Curve -->
-        <path d="M 10 34 C 4 28 2 22 10 15 C 14 20 13 28 10 34 Z" fill="url(#bottomFlame)" />
+        <!-- Top Flame Component (Orange) -->
+        <path d="M 60 5 C 75 30 85 50 65 72 C 50 50 52 28 60 5 Z" fill="url(#orangeGrad)" />
+        <!-- Bottom Flame Component (Blue) -->
+        <path d="M 40 145 C 25 120 15 100 35 78 C 50 100 48 122 40 145 Z" fill="url(#blueGrad)" />
       </svg>
       <span>VAPES</span>
     </a>
@@ -630,9 +630,9 @@
     <div>
       <div class="brand-wordmark" style="font-size:20px;">
         <span>KELOWNA</span>
-        <svg class="brand-flame" style="width:14px; height:22px;" viewBox="0 0 24 36" fill="none" aria-hidden="true">
-          <path d="M 14 2 C 18 8 20 12 14 17 C 10 12 11 6 14 2 Z" fill="url(#topFlame)" />
-          <path d="M 10 34 C 4 28 2 22 10 15 C 14 20 13 28 10 34 Z" fill="url(#bottomFlame)" />
+        <svg class="brand-flame" style="width:14px; height:22px;" viewBox="0 0 100 150" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M 60 5 C 75 30 85 50 65 72 C 50 50 52 28 60 5 Z" fill="url(#orangeGrad)" />
+          <path d="M 40 145 C 25 120 15 100 35 78 C 50 100 48 122 40 145 Z" fill="url(#blueGrad)" />
         </svg>
         <span>VAPES</span>
       </div>
