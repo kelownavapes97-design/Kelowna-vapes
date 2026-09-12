@@ -3,63 +3,85 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kelowna Vapes — Local Source for Top Brands</title>
+<title>Kelowna Vapes — Premium Disposable Vapes & E-Liquids</title>
 <meta name="description" content="Serving Kelowna and West Kelowna with top brands including STLTH, Flavour Beast, Lost Mary, and G-Core.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Syne:wght@700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
 <style>
-  /* Hero Section Styling */
+  /* Hero & Visual Glow FX */
   .hero-wrapper {
     position: relative;
-    padding: 100px 0 80px;
-    background: radial-gradient(circle at 80% 20%, rgba(255, 106, 43, 0.12) 0%, rgba(8, 10, 15, 0) 60%),
-                radial-gradient(circle at 20% 80%, rgba(59, 130, 246, 0.08) 0%, rgba(8, 10, 15, 0) 50%);
-    border-bottom: 1px solid var(--surface-border);
+    padding: 100px 0 90px;
+    background: 
+      radial-gradient(600px circle at 75% 20%, rgba(255, 106, 43, 0.18), transparent 80%),
+      radial-gradient(500px circle at 15% 70%, rgba(59, 130, 246, 0.12), transparent 70%),
+      #080a0f;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     overflow: hidden;
   }
-  
-  .hero-content {
-    max-width: 750px;
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 48px;
+    align-items: center;
   }
 
-  .hero-tag {
+  .hero-tag-pill {
     display: inline-flex;
     align-items: center;
     gap: 8px;
     font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 1px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
     text-transform: uppercase;
     color: var(--primary);
-    background: rgba(255, 106, 43, 0.1);
-    border: 1px solid rgba(255, 106, 43, 0.25);
-    padding: 6px 14px;
-    border-radius: 20px;
+    background: rgba(255, 106, 43, 0.12);
+    border: 1px solid rgba(255, 106, 43, 0.3);
+    padding: 8px 18px;
+    border-radius: 30px;
     margin-bottom: 24px;
+    box-shadow: 0 0 20px rgba(255, 106, 43, 0.2);
+  }
+
+  .pulse-dot {
+    width: 8px;
+    height: 8px;
+    background: var(--primary);
+    border-radius: 50%;
+    box-shadow: 0 0 8px var(--primary);
   }
 
   .hero-title {
-    font-size: 56px;
-    line-height: 1.1;
-    font-weight: 800;
-    margin-bottom: 20px;
-    letter-spacing: -1px;
+    font-family: var(--font-heading);
+    font-size: 64px;
+    line-height: 1.05;
+    font-weight: 900;
+    margin-bottom: 24px;
+    letter-spacing: -1.5px;
     text-transform: uppercase;
   }
 
-  .hero-title span {
-    background: linear-gradient(135deg, #ffffff 0%, #a1a1aa 100%);
+  .text-gradient {
+    background: linear-gradient(135deg, #ffffff 30%, #a1a1aa 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .text-accent {
+    background: linear-gradient(135deg, #ff6a2b 0%, #ff9e43 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
 
   .hero-subtitle {
-    font-size: 18px;
+    font-size: 19px;
     color: var(--muted);
     line-height: 1.6;
-    margin-bottom: 36px;
+    margin-bottom: 40px;
+    max-width: 600px;
   }
 
   .hero-cta-group {
@@ -68,115 +90,203 @@
     flex-wrap: wrap;
   }
 
-  /* Section Titles */
-  .section-header {
-    margin-bottom: 36px;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
+  /* Hero Featured Visual Box */
+  .hero-visual-card {
+    background: rgba(15, 18, 25, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 16px;
+    padding: 32px;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+    position: relative;
+  }
+
+  .hero-visual-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; height: 2px;
+    background: linear-gradient(90deg, var(--primary), #3b82f6);
+    border-radius: 16px 16px 0 0;
+  }
+
+  .visual-card-title {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--primary);
+    margin-bottom: 12px;
+  }
+
+  .visual-card-heading {
+    font-size: 26px;
+    font-family: var(--font-heading);
+    margin-bottom: 8px;
+  }
+
+  /* Stats / Value Bar */
+  .value-bar {
+    background: rgba(15, 18, 25, 0.9);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 24px 0;
+  }
+  .value-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 24px;
+    text-align: center;
+  }
+  .value-item h4 {
+    font-size: 28px;
+    font-weight: 800;
+    margin-bottom: 4px;
+    color: #fff;
+  }
+  .value-item p {
+    font-size: 13px;
+    color: var(--muted);
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  /* Interactive Product Cards */
+  .section-title-wrap {
+    text-align: center;
+    max-width: 650px;
+    margin: 0 auto 50px;
   }
 
   .section-title {
-    font-size: 32px;
+    font-size: 38px;
     text-transform: uppercase;
-    margin-bottom: 8px;
+    margin-bottom: 12px;
   }
 
-  /* Grid Layouts */
-  .brand-grid {
+  .product-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 24px;
     margin-bottom: 80px;
   }
 
-  .brand-card {
-    background: var(--surface-glass);
-    border: 1px solid var(--surface-border);
-    border-radius: var(--radius-sm);
+  .home-product-card {
+    background: rgba(15, 18, 25, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
     padding: 24px;
-    text-decoration: none;
-    color: var(--text);
-    transition: all 0.3s ease;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    min-height: 140px;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
-  .brand-card:hover {
-    border-color: var(--primary);
-    transform: translateY(-4px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 15px rgba(255, 106, 43, 0.15);
+  .home-product-card:hover {
+    border-color: rgba(255, 106, 43, 0.5);
+    transform: translateY(-6px);
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5), 0 0 20px rgba(255, 106, 43, 0.15);
   }
 
-  .brand-name {
-    font-family: var(--font-heading);
-    font-size: 22px;
+  .home-card-badge {
+    align-self: flex-start;
+    font-size: 11px;
     font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--primary);
+    background: rgba(255, 106, 43, 0.12);
+    border: 1px solid rgba(255, 106, 43, 0.25);
+    padding: 4px 10px;
+    border-radius: 12px;
+    margin-bottom: 16px;
   }
 
-  .brand-meta {
-    font-size: 13px;
-    color: var(--muted);
-    font-weight: 600;
+  .flavor-select {
+    width: 100%;
+    background: rgba(8, 10, 15, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: var(--text);
+    padding: 10px 14px;
+    border-radius: 6px;
+    font-family: var(--font-body);
+    font-size: 14px;
+    margin-bottom: 16px;
+    outline: none;
+    cursor: pointer;
   }
 
-  /* Featured Promo Card */
-  .promo-banner {
-    background: linear-gradient(135deg, rgba(255, 106, 43, 0.1) 0%, rgba(15, 18, 25, 0.8) 100%);
-    border: 1px solid rgba(255, 106, 43, 0.3);
-    border-radius: var(--radius-sm);
-    padding: 40px;
-    margin-bottom: 80px;
+  .flavor-select:focus {
+    border-color: var(--primary);
+  }
+
+  /* Large Promotional Banner */
+  .deal-banner {
+    background: linear-gradient(135deg, rgba(255, 106, 43, 0.15) 0%, rgba(8, 10, 15, 0.9) 100%);
+    border: 1px solid rgba(255, 106, 43, 0.4);
+    border-radius: 16px;
+    padding: 48px;
+    margin-bottom: 90px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 32px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .deal-banner::before {
+    content: '50% OFF';
+    position: absolute;
+    right: -20px;
+    bottom: -30px;
+    font-size: 120px;
+    font-weight: 900;
+    font-family: var(--font-heading);
+    color: rgba(255, 255, 255, 0.03);
+    pointer-events: none;
+  }
+
+  /* Location Cards */
+  .location-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 28px;
+    margin-bottom: 90px;
+  }
+
+  .store-card {
+    background: rgba(15, 18, 25, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    padding: 32px;
+    position: relative;
+  }
+
+  .store-card-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 24px;
-    flex-wrap: wrap;
+    margin-bottom: 16px;
   }
 
-  .promo-content h3 {
-    font-size: 28px;
-    margin-bottom: 8px;
-  }
-
-  .promo-content p {
-    color: var(--muted);
+  .store-title {
+    font-size: 24px;
+    font-family: var(--font-heading);
     margin: 0;
   }
 
-  /* Location Grid */
-  .location-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 24px;
-    margin-bottom: 80px;
+  .open-badge {
+    background: rgba(34, 197, 94, 0.15);
+    color: #4ade80;
+    border: 1px solid rgba(34, 197, 94, 0.3);
+    font-size: 11px;
+    font-weight: 800;
+    padding: 4px 10px;
+    border-radius: 20px;
+    text-transform: uppercase;
   }
 
-  .location-card {
-    background: var(--surface-glass);
-    border: 1px solid var(--surface-border);
-    border-radius: var(--radius-sm);
-    padding: 28px;
-  }
-
-  .location-title {
-    font-size: 20px;
-    font-weight: 700;
-    margin-bottom: 12px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-
-  .location-detail {
-    color: var(--muted);
-    font-size: 14px;
-    line-height: 1.6;
-  }
-
-  /* Header Cart Button */
+  /* Cart Badge Link */
   .header-actions {
     display: flex;
     align-items: center;
@@ -186,14 +296,20 @@
   .cart-link {
     display: inline-flex;
     align-items: center;
-    gap: 6px;
-    font-weight: 600;
+    gap: 8px;
+    font-weight: 700;
     color: var(--text);
     text-decoration: none;
-    padding: 8px 14px;
-    border-radius: var(--radius-sm);
-    background: var(--surface-glass);
-    border: 1px solid var(--surface-border);
+    padding: 8px 16px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    transition: all 0.2s;
+  }
+
+  .cart-link:hover {
+    border-color: var(--primary);
+    background: rgba(255, 106, 43, 0.1);
   }
 
   .cart-badge {
@@ -205,15 +321,16 @@
     border-radius: 10px;
   }
 
-  @media (max-width: 768px) {
-    .hero-title { font-size: 38px; }
-    .hero-wrapper { padding: 60px 0 40px; }
+  @media (max-width: 992px) {
+    .hero-grid { grid-template-columns: 1fr; }
+    .hero-title { font-size: 44px; }
+    .deal-banner { grid-template-columns: 1fr; }
   }
 </style>
 </head>
 <body>
 
-<!-- Header -->
+<!-- Site Header -->
 <header class="site-header">
   <div class="container">
     <a href="index.html" class="wordmark" aria-label="Kelowna Vapes Homepage">
@@ -249,88 +366,186 @@
   <!-- Hero Section -->
   <section class="hero-wrapper">
     <div class="container">
-      <div class="hero-content">
-        <div class="hero-tag">Official Retailer</div>
-        <h1 class="hero-title"><span>Your Local Source</span> For Top Brands</h1>
-        <p class="hero-subtitle">
-          Serving Kelowna at 2090 Harvey Ave and West Kelowna at 1785 Ross Rd. Stocking authentic products from STLTH, Flavour Beast, Lost Mary, and G-Core.
-        </p>
-        <div class="hero-cta-group">
-          <a href="shop.html" class="btn btn-primary">Browse Shop</a>
-          <a href="about.html" class="btn btn-outline">Hours &amp; Locations</a>
+      <div class="hero-grid">
+        <div>
+          <div class="hero-tag-pill">
+            <span class="pulse-dot"></span> Official Okanagan Retailer
+          </div>
+          <h1 class="hero-title">
+            <span class="text-gradient">Your Premier</span><br>
+            <span class="text-accent">Vape Destination</span>
+          </h1>
+          <p class="hero-subtitle">
+            Stocking authentic disposables, pods, hardware, and e-liquids from STLTH, Flavour Beast, Lost Mary, Elfbar, and G-Core across Kelowna &amp; West Kelowna.
+          </p>
+          <div class="hero-cta-group">
+            <a href="shop.html" class="btn btn-primary" style="padding: 14px 32px; font-size: 16px;">Explore Full Catalog</a>
+            <a href="about.html" class="btn btn-outline" style="padding: 14px 28px; font-size: 16px;">Store Locations</a>
+          </div>
+        </div>
+
+        <!-- Hero Visual Showcase Box -->
+        <div class="hero-visual-card">
+          <div class="visual-card-title">Featured Promotion</div>
+          <h3 class="visual-card-heading">G-Core E-Liquid Special</h3>
+          <p style="color: var(--muted); font-size: 14px; margin-bottom: 20px;">
+            Buy 1 30ml Bottle, Get 2nd at <strong>50% OFF</strong>. Premium nicotine salts in stock daily.
+          </p>
+          <a href="shop.html?category=E-Liquids" class="btn btn-primary" style="width: 100%; text-align: center;">Shop G-Core Liquids</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Popular Brands Section -->
-  <section class="container" style="padding-top: 60px;">
-    <div class="section-header">
+  <!-- Value Bar / Stats -->
+  <section class="value-bar">
+    <div class="container">
+      <div class="value-grid">
+        <div class="value-item">
+          <h4>2 Locations</h4>
+          <p>Kelowna &amp; West Kelowna</p>
+        </div>
+        <div class="value-item">
+          <h4>100% Authentic</h4>
+          <p>Direct Manufacturer Supply</p>
+        </div>
+        <div class="value-item">
+          <h4>Open Late</h4>
+          <p>Up to 11:00 PM Daily</p>
+        </div>
+        <div class="value-item">
+          <h4>Top Brands</h4>
+          <p>STLTH, Lost Mary &amp; More</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Products Section (Direct Shop Cards) -->
+  <section class="container" style="padding-top: 80px;">
+    <div class="section-title-wrap">
+      <h2 class="section-title">Trending Disposables</h2>
+      <p style="color: var(--muted); margin: 0;">Select your favorite flavor and add items directly to your cart:</p>
+    </div>
+
+    <div class="product-grid">
+
+      <!-- STLTH X GEEKBAR -->
+      <div class="home-product-card" data-title="STLTH X GEEKBAR" data-price="Price on Request">
+        <div>
+          <span class="home-card-badge">HOT ITEM</span>
+          <h3 style="font-size: 20px; margin: 0 0 8px;">STLTH X GEEKBAR</h3>
+          <div style="color: var(--primary); font-weight: 700; margin-bottom: 12px; font-size: 14px;">Price on Request</div>
+          <p style="color: var(--muted); font-size: 13px; margin-bottom: 16px;">High-capacity collaboration featuring STLTH flavor profiles with Geek Bar hardware.</p>
+          <select class="flavor-select" aria-label="Select Flavor">
+            <option value="">Choose Flavor...</option>
+            <option>Blueberry Watermelon Ice</option>
+            <option>Coconut Ice</option>
+            <option>Lychee Melon Ice</option>
+            <option>Juicy Peach Ice</option>
+            <option>Strawberry Banana Ice</option>
+          </select>
+        </div>
+        <button class="btn btn-primary add-to-cart-btn" style="width: 100%;">Add to Cart</button>
+      </div>
+
+      <!-- ELFBAR 80K -->
+      <div class="home-product-card" data-title="ELFBAR 80K" data-price="Price on Request">
+        <div>
+          <span class="home-card-badge">LONG LASTING</span>
+          <h3 style="font-size: 20px; margin: 0 0 8px;">ELFBAR 80K</h3>
+          <div style="color: var(--primary); font-weight: 700; margin-bottom: 12px; font-size: 14px;">Price on Request</div>
+          <p style="color: var(--muted); font-size: 13px; margin-bottom: 16px;">Extreme longevity with dual power output modes and digital display panel.</p>
+          <select class="flavor-select" aria-label="Select Flavor">
+            <option value="">Choose Flavor...</option>
+            <option>Blue Razz Ice</option>
+            <option>Miami Mint</option>
+            <option>Double Mango</option>
+            <option>Watermelon Ice</option>
+          </select>
+        </div>
+        <button class="btn btn-primary add-to-cart-btn" style="width: 100%;">Add to Cart</button>
+      </div>
+
+      <!-- ALLO 65K -->
+      <div class="home-product-card" data-title="ALLO 65K" data-price="Price on Request">
+        <div>
+          <span class="home-card-badge">DUAL TANK</span>
+          <h3 style="font-size: 20px; margin: 0 0 8px;">ALLO 65K</h3>
+          <div style="color: var(--primary); font-weight: 700; margin-bottom: 12px; font-size: 14px;">Price on Request</div>
+          <p style="color: var(--muted); font-size: 13px; margin-bottom: 16px;">Ultra-high-capacity system with dual-reservoir technology.</p>
+          <select class="flavor-select" aria-label="Select Flavor">
+            <option value="">Choose Flavor...</option>
+            <option>Blue Razz</option>
+            <option>Grape Ice</option>
+            <option>Mighty Mint</option>
+            <option>Orange Fanta</option>
+          </select>
+        </div>
+        <button class="btn btn-primary add-to-cart-btn" style="width: 100%;">Add to Cart</button>
+      </div>
+
+      <!-- G-CORE E-LIQUID -->
+      <div class="home-product-card" data-title="G-CORE Salt E-Liquid" data-price="$25.99">
+        <div>
+          <span class="home-card-badge" style="color: #3b82f6; background: rgba(59, 130, 246, 0.12); border-color: rgba(59, 130, 246, 0.3);">BUY 1 GET 2ND 50% OFF</span>
+          <h3 style="font-size: 20px; margin: 0 0 8px;">G-CORE Salt E-Liquid</h3>
+          <div style="color: var(--primary); font-weight: 700; margin-bottom: 12px; font-size: 14px;">$25.99 / 30ml</div>
+          <p style="color: var(--muted); font-size: 13px; margin-bottom: 16px;">Premium salt nicotine formulas designed for crisp vapor performance.</p>
+          <select class="flavor-select" aria-label="Select Flavor">
+            <option value="">Choose Flavor...</option>
+            <option>Banana Ice</option>
+            <option>Blue Razz</option>
+            <option>Double Mint</option>
+            <option>Tobacco</option>
+          </select>
+        </div>
+        <button class="btn btn-primary add-to-cart-btn" style="width: 100%;">Add to Cart</button>
+      </div>
+
+    </div>
+
+    <!-- Promo Banner -->
+    <div class="deal-banner">
       <div>
-        <h2 class="section-title">Popular Brands In Stock</h2>
-        <p style="color: var(--muted); margin: 0;">Explore top products from leading manufacturers:</p>
+        <span class="home-card-badge" style="background: var(--primary); color: #fff; border: none;">IN-STORE DEAL</span>
+        <h2 style="font-size: 32px; font-family: var(--font-heading); margin: 12px 0 8px;">G-CORE Mix &amp; Match Special</h2>
+        <p style="color: var(--muted); margin: 0; max-width: 550px;">
+          Stock up on your favorite salt nicotine flavors. Buy any G-Core bottle and get the second bottle at 50% off at both Kelowna and West Kelowna locations.
+        </p>
       </div>
-      <a href="shop.html" style="color: var(--primary); text-decoration: none; font-weight: 600; font-size: 14px;">View All Items →</a>
+      <a href="shop.html" class="btn btn-primary" style="white-space: nowrap; padding: 14px 28px;">Browse All Flavors</a>
     </div>
 
-    <div class="brand-grid">
-      <a href="shop.html?brand=STLTH" class="brand-card">
-        <div class="brand-name">STLTH</div>
-        <div class="brand-meta">Pods &amp; Disposables</div>
-      </a>
-      <a href="shop.html?brand=FlavourBeast" class="brand-card">
-        <div class="brand-name">Flavour Beast</div>
-        <div class="brand-meta">Level X &amp; E-Liquids</div>
-      </a>
-      <a href="shop.html?brand=Elfbar" class="brand-card">
-        <div class="brand-name">Elfbar</div>
-        <div class="brand-meta">Rechargeable Disposables</div>
-      </a>
-      <a href="shop.html?brand=Allo" class="brand-card">
-        <div class="brand-name">Allo</div>
-        <div class="brand-meta">Ultra &amp; 25K Systems</div>
-      </a>
-      <a href="shop.html?brand=GCore" class="brand-card">
-        <div class="brand-name">G-Core</div>
-        <div class="brand-meta">E-Liquid Bottles &amp; Disposables</div>
-      </a>
-      <a href="shop.html?brand=LostMary" class="brand-card">
-        <div class="brand-name">Lost Mary</div>
-        <div class="brand-meta">High Capacity Systems</div>
-      </a>
-    </div>
-
-    <!-- Featured Deal / Promo Banner -->
-    <div class="promo-banner">
-      <div class="promo-content">
-        <h3>G-Core E-Liquid Special Offer</h3>
-        <p>Buy 1 Get 2nd 50% Off across selected 30ml salt nicotine flavors.</p>
-      </div>
-      <a href="shop.html?category=E-Liquids" class="btn btn-primary">Shop E-Liquids</a>
-    </div>
-
-    <!-- Store Locations Quick View -->
-    <div class="section-header">
-      <div>
-        <h2 class="section-title">Visit Our Stores</h2>
-        <p style="color: var(--muted); margin: 0;">Two locations serving the Okanagan valley daily.</p>
-      </div>
+    <!-- Store Locations Section -->
+    <div class="section-title-wrap">
+      <h2 class="section-title">Visit Our Okanagan Stores</h2>
+      <p style="color: var(--muted); margin: 0;">Stop by today for complete product availability and expert assistance.</p>
     </div>
 
     <div class="location-grid">
-      <div class="location-card">
-        <div class="location-title">📍 Kelowna</div>
-        <div class="location-detail">
-          <strong>Address:</strong> 2090 Harvey Ave<br>
-          <strong>Hours:</strong> Open Daily 7:00 AM – 11:00 PM
+      <div class="store-card">
+        <div class="store-card-header">
+          <h3 class="store-title">📍 Kelowna Store</h3>
+          <span class="open-badge">OPEN DAILY</span>
         </div>
+        <p style="color: var(--muted); font-size: 15px; line-height: 1.6; margin-bottom: 20px;">
+          <strong>Address:</strong> 2090 Harvey Ave, Kelowna, BC<br>
+          <strong>Hours:</strong> 7:00 AM – 11:00 PM
+        </p>
+        <a href="about.html" class="btn btn-outline" style="width: 100%; text-align: center;">Get Directions</a>
       </div>
-      <div class="location-card">
-        <div class="location-title">📍 West Kelowna</div>
-        <div class="location-detail">
-          <strong>Address:</strong> 1785 Ross Rd<br>
-          <strong>Hours:</strong> Open Daily 8:00 AM – 10:00 PM
+
+      <div class="store-card">
+        <div class="store-card-header">
+          <h3 class="store-title">📍 West Kelowna</h3>
+          <span class="open-badge">OPEN DAILY</span>
         </div>
+        <p style="color: var(--muted); font-size: 15px; line-height: 1.6; margin-bottom: 20px;">
+          <strong>Address:</strong> 1785 Ross Rd, West Kelowna, BC<br>
+          <strong>Hours:</strong> 8:00 AM – 10:00 PM
+        </p>
+        <a href="about.html" class="btn btn-outline" style="width: 100%; text-align: center;">Get Directions</a>
       </div>
     </div>
   </section>
@@ -343,7 +558,6 @@
       <div class="wordmark" style="font-size:18px;">Kelowna Vapes</div>
       <p class="footer-note">For adult consumers 19+ only. Products contain nicotine, an addictive substance.</p>
     </div>
-    
     <div>
       <p style="margin:0; color:var(--muted); font-size:14px; line-height: 1.6;">
         <strong>Kelowna:</strong> 2090 Harvey Ave (7am–11pm)<br>
@@ -354,12 +568,48 @@
 </footer>
 
 <script>
+  // Cart management script
+  function getCart() {
+    return JSON.parse(localStorage.getItem('cart')) || [];
+  }
+
   function updateCartBadge() {
-    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const cart = getCart();
     const count = cart.reduce((total, item) => total + item.quantity, 0);
     const badge = document.getElementById('cart-count');
     if (badge) badge.textContent = count;
   }
+
+  document.querySelectorAll('.add-to-cart-btn').forEach(button => {
+    button.addEventListener('click', (e) => {
+      const card = e.target.closest('.home-product-card');
+      const title = card.getAttribute('data-title');
+      const price = card.getAttribute('data-price');
+      const flavorSelect = card.querySelector('.flavor-select');
+      const flavor = flavorSelect ? flavorSelect.value : '';
+
+      if (flavorSelect && !flavor) {
+        alert('Please select a flavor before adding to cart.');
+        return;
+      }
+
+      const cart = getCart();
+      const existingIndex = cart.findIndex(item => item.title === title && item.flavor === flavor);
+
+      if (existingIndex > -1) {
+        cart[existingIndex].quantity += 1;
+      } else {
+        cart.push({ title, price, flavor, quantity: 1 });
+      }
+
+      localStorage.setItem('cart', JSON.stringify(cart));
+      updateCartBadge();
+
+      button.textContent = 'Added to Cart!';
+      setTimeout(() => { button.textContent = 'Add to Cart'; }, 1500);
+    });
+  });
+
   document.addEventListener('DOMContentLoaded', updateCartBadge);
 </script>
 <script src="assets/js/main.js"></script>
