@@ -1,1 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Cart — Kelowna Vapes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<style>
+  .cart-header {
+    padding: 60px 0 30px;
+  }
+  .cart-header h1 {
+    font-size: 42px;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .cart-container {
+    background: var(--surface-glass);
+    border: 1px solid var(--surface-border);
+    border-radius: var(--radius-sm);
+    padding: 24px;
+    margin-bottom: 60px;
+  }
+  .cart-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .cart-table th, .cart-table td {
+    padding: 16px;
+    text-align: left;
+    border-bottom: 1px solid var(--surface-border);
+  }
+  .cart-table th {
+    color: var(--muted);
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .cart-item-title {
+    font-weight: 700;
+    font-size: 16px;
+  }
+  .cart-item-flavor {
+    color: var(--muted);
+    font-size: 13px;
+  }
+  .qty-btn {
+    background: var(--surface-hover);
+    border: 1px solid var(--surface-border);
+    color: var(--text);
+    padding: 4px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  .remove-btn {
+    background: transparent;
+    border: none;
+    color: #ff4d4d;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+  }
+  .cart-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 24px;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .empty-cart-msg {
+    text-align: center;
+    padding: 40px;
+    color: var(--muted);
+  }
+</style>
+</head>
+<body>
 
+<!-- Header -->
+<header class="site-header">
+  <div class="container">
+    <a href="index.html" class="wordmark" aria-label="Kelowna Vapes Homepage">
+      Kelowna Vapes
+    </a>
+    <nav class="main-nav" id="main-nav">
+      <a href="index.html">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="about.html">About &amp; Hours</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <section class="cart-header">
+    <h1>Your Cart</h1>
+    <p style="color: var(--muted); margin: 0;">Review your selected items before visiting or placing an in-store reserve request.</p>
+  </section>
+
+  <div class="cart-container">
+    <table class="cart-table">
+      <thead>
+        <tr>
+          <th>Product</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody id="cart-items">
+        <!-- Dynamically populated -->
+      </tbody>
+    </table>
+    
+    <div id="empty-msg" class="empty-cart-msg" style="display: none;">
+      Your cart is empty. <a href="shop.html" style="color: var(--primary);">Return to shop</a>
+    </div>
+
+    <div class="cart-actions">
+      <a href="shop.html" class="btn btn-outline">← Continue Shopping</a>
+      <button class="btn btn-primary" onclick="alert('In-store reserve request functionality ready!')">Reserve for Store Pick-Up</button>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div>
+      <div class="wordmark" style="font-size:18px;">Kelowna Vapes</div>
+      <p class="footer-note">For adult consumers 19+ only. Products contain nicotine, an addictive substance.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function getCart() {
+    return JSON.parse(localStorage.getItem('cart')) || [];
+  }
+
+  function saveCart(cart) {
+    localStorage.setItem('cart', JSON.stringify(cart));
+  }
+
+  function renderCart() {
+    const cart = getCart();
+    const tbody = document.getElementById('cart-items');
+    const emptyMsg = document.getElementById('empty-msg');
+    
+    tbody.innerHTML = '';
+
+    if (cart.length === 0) {
+      emptyMsg.style.display = 'block';
+      return;
+    }
+
+    emptyMsg.style.display = 'none';
+
+    cart.forEach((item, index) => {
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td>
+          <div class="cart-item-title">${item.title}</div>
+          ${item.flavor ? `<div class="cart-item-flavor">Flavor: ${item.flavor}</div>` : ''}
+        </td>
+        <td>${item.price}</td>
+        <td>
+          <button class="qty-btn" onclick="updateQty(${index}, -1)">-</button>
+          <span style="margin: 0 8px;">${item.quantity}</span>
+          <button class="qty-btn" onclick="updateQty(${index}, 1)">+</button>
+        </td>
+        <td>
+          <button class="remove-btn" onclick="removeItem(${index})">Remove</button>
+        </td>
+      `;
+      tbody.appendChild(tr);
+    });
+  }
+
+  function updateQty(index, change) {
+    const cart = getCart();
+    cart[index].quantity += change;
+    if (cart[index].quantity <= 0) {
+      cart.splice(index, 1);
+    }
+    saveCart(cart);
+    renderCart();
+  }
+
+  function removeItem(index) {
+    const cart = getCart();
+    cart.splice(index, 1);
+    saveCart(cart);
+    renderCart();
+  }
+
+  renderCart();
+</script>
+</body>
+</html>
